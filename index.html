@@ -3,175 +3,160 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diana Dark Dev</title>
+<title>Diana – Portfolio Dark Dev & Gamer</title>
 
-<!-- Google Fonts -->
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- tsParticles background -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
 
 <style>
 /* --- GLOBAL --- */
-* { margin:0; padding:0; box-sizing:border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(160deg, #0d0d0d, #1a1a2e);
+  background: #0a0a10;
   color: #fff;
   overflow-x: hidden;
 }
 
-/* --- ANIMATED BACKGROUND --- */
-body::before {
-  content: "";
+/* --- PARTICLE BACKGROUND --- */
+#tsparticles {
   position: fixed;
-  top:0; left:0;
   width: 100%;
   height: 100%;
-  background: url('https://i.imgur.com/XkZ4rQd.png') repeat;
-  opacity: 0.1;
-  animation: moveBG 60s linear infinite;
   z-index: -1;
-}
-
-@keyframes moveBG {
-  0% {background-position: 0 0;}
-  100% {background-position: 1000px 1000px;}
 }
 
 /* --- HEADER --- */
 header {
-  display:flex;
-  justify-content: space-between;
-  align-items:center;
-  padding:20px 40px;
-  background: rgba(20,20,30,0.8);
-  backdrop-filter: blur(5px);
+  padding: 20px;
+  text-align: center;
+  background: rgba(0,0,0,0.7);
 }
-
 .logo {
   font-family: 'Press Start 2P', cursive;
-  font-size: 24px;
   color: #ff2d95;
-  letter-spacing: 2px;
+  font-size: 28px;
+  text-shadow: 0 0 10px #ff2d95;
 }
 
-/* --- HERO SECTION --- */
+/* --- HERO --- */
 .hero {
+  padding: 120px 20px;
   text-align: center;
-  padding: 150px 20px;
-  animation: fadeIn 2s ease forwards;
 }
-
 .hero h1 {
   font-family: 'Press Start 2P', cursive;
-  font-size: 48px;
   color: #ff2d95;
-  text-shadow: 0 0 10px #ff2d95, 0 0 20px #ff2d95;
-  margin-bottom: 20px;
+  font-size: 48px;
+  animation: glow 2s ease-in-out infinite alternate;
 }
-
 .hero p {
-  font-size: 20px;
-  color: #aaa;
-  margin-bottom: 40px;
+  color: #ccc;
+  margin-top: 10px;
+  font-size: 18px;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 10px #ff2d95; }
+  to { text-shadow: 0 0 25px #ff2d95; }
 }
 
-.btn {
-  display:inline-block;
-  padding: 14px 28px;
-  color:#0d0d0d;
-  background: #ff2d95;
-  border-radius: 12px;
-  text-decoration:none;
-  font-weight:bold;
-  box-shadow: 0 0 10px #ff2d95, 0 0 20px #ff2d95;
-  transition: 0.3s;
+/* --- PROJECT CARDS --- */
+.projects {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  padding: 50px 20px;
 }
-
-.btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #ff2d95, 0 0 40px #ff2d95;
-}
-
-/* --- SERVICES CARDS --- */
-.services {
-  display:flex;
-  justify-content:center;
-  flex-wrap: wrap;
-  gap: 30px;
-  padding: 80px 20px;
-}
-
 .card {
-  background: rgba(20,20,30,0.8);
-  border-radius: 20px;
-  padding: 30px;
-  width: 280px;
-  text-align:center;
+  background: rgba(20,20,30,0.9);
+  border-radius: 15px;
+  padding: 22px;
+  text-align: left;
+  border: 1px solid #222;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 30px #ff2d95, 0 0 60px #ff2d95;
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px #ff2d95, 0 0 45px #ff2d95;
 }
-
 .card h3 {
   color: #ff2d95;
-  margin-bottom: 15px;
   font-family: 'Press Start 2P', cursive;
+  font-size: 20px;
 }
-
-.card p {
-  color: #ccc;
+.card a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+.card a:hover {
+  color: #ff2d95;
 }
 
 /* --- FOOTER --- */
 footer {
-  text-align:center;
-  padding:40px;
-  color:#666;
-  font-size:14px;
+  text-align: center;
+  padding: 35px;
+  font-size: 14px;
+  color: #777;
 }
-
-/* --- ANIMATIONS --- */
-@keyframes fadeIn {
-  from {opacity:0; transform: translateY(50px);}
-  to {opacity:1; transform: translateY(0);}
-}
-
 </style>
 </head>
 
 <body>
 
+<div id="tsparticles"></div>
+
 <header>
-  <div class="logo">Diana</div>
-  <!-- Puoi aggiungere navbar qui se vuoi -->
+  <div class="logo">DIANA</div>
 </header>
 
 <section class="hero">
-  <h1>Diana Dark Dev</h1>
-  <p>Web Developer & Gamer | Minecraft & Coding</p>
-  <a href="#" class="btn">Contattami</a>
+  <h1>Diana – Dark Dev</h1>
+  <p>Gamer | Developer | Creator</p>
 </section>
 
-<section class="services">
+<section class="projects">
   <div class="card">
-    <h3>Web Design</h3>
-    <p>Siti moderni, animati e veloci</p>
+    <h3>Progetto 1</h3>
+    <a href="#" target="_blank">💻 Link alla demo</a>
+    <p>Descrizione breve del progetto o tool.</p>
   </div>
   <div class="card">
-    <h3>Sviluppo</h3>
-    <p>Codice pulito e performante</p>
+    <h3>Progetto 2</h3>
+    <a href="#" target="_blank">🎮 Link al gioco / Minecraft</a>
+    <p>Descrizione breve di cosa fa.</p>
   </div>
   <div class="card">
-    <h3>Gaming</h3>
-    <p>Passione per Minecraft e altri giochi</p>
+    <h3>Progetto 3</h3>
+    <a href="#" target="_blank">💡 Link alle risorse</a>
+    <p>Link a documentazione/galleria personale ecc.</p>
   </div>
 </section>
 
-<footer>
-  © 2026 Diana - Dark Dev & Gamer
-</footer>
+<footer>© 2026 Diana – Dark Dev & Gamer</footer>
+
+<script>
+tsParticles.load("tsparticles", {
+  particles: {
+    number: { value: 50, density: { enable: true, value_area: 800 } },
+    color: { value: "#ff2d95" },
+    shape: { type: "circle" },
+    opacity: { value: 0.6 },
+    size: { value: 4 },
+    move: { enable: true, speed: 1 }
+  },
+  interactivity: {
+    events: {
+      onhover: { enable: true, mode: "repulse" },
+      onclick: { enable: true, mode: "push" }
+    }
+  }
+});
+</script>
 
 </body>
 </html>
