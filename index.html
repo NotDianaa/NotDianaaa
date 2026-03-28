@@ -5,128 +5,130 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Diana – Dark Dev & Gamer</title>
 
-<!-- Fonts -->
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-<!-- tsParticles for animated background -->
+<!-- tsParticles per le particelle -->
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
 
 <style>
-/* GLOBAL STYLES */
+/* RESET */
 * { margin:0; padding:0; box-sizing:border-box; }
-body {
-  font-family: 'Roboto', sans-serif;
-  background: url('https://images.alphacoders.com/123/1234568.jpg') no-repeat center center fixed; /* Sostituisci con la tua immagine 4K/8K dark anime girl */
-  background-size: cover;
-  color: #fff;
-  overflow-x: hidden;
+body, html { width:100%; height:100%; font-family:'Roboto',sans-serif; overflow-x:hidden; }
+
+/* VIDEO BACKGROUND */
+#bg-video {
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  z-index:-2;
+  opacity:0.75;
 }
 
 /* PARTICLE BACKGROUND */
 #tsparticles {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+  position:fixed;
+  width:100%;
+  height:100%;
+  z-index:-1;
 }
 
 /* HEADER */
 header {
-  padding: 20px;
-  text-align: center;
-  background: rgba(0,0,0,0.6);
+  padding:20px; 
+  text-align:center;
+  background:rgba(0,0,0,0.55);
 }
 .logo {
-  font-family: 'Press Start 2P', cursive;
-  color: #ff1f1f;
-  font-size: 28px;
-  text-shadow: 0 0 15px #ff1f1f, 0 0 30px #ff0000;
+  font-family:'Press Start 2P',cursive;
+  color:#ff1f1f;
+  font-size:30px;
+  text-shadow:0 0 15px #ff1f1f,0 0 30px #ff0000;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
-  padding: 100px 20px;
-  text-align: center;
+  padding:120px 20px;
+  text-align:center;
 }
 .hero h1 {
-  font-family: 'Press Start 2P', cursive;
-  color: #ff1f1f;
-  font-size: 48px;
-  animation: glow 2s ease-in-out infinite alternate;
+  font-family:'Press Start 2P',cursive;
+  font-size:55px;
+  color:#ff1f1f;
+  animation:neonPulse 3s ease-in-out infinite alternate;
 }
 .hero p {
-  color: #ccc;
-  margin-top: 10px;
-  font-size: 18px;
+  color:#ddd;
+  margin-top:10px;
+  font-size:20px;
 }
-@keyframes glow {
-  from { text-shadow: 0 0 10px #ff1f1f; }
-  to { text-shadow: 0 0 25px #ff1f1f, 0 0 50px #ff0000; }
+@keyframes neonPulse {
+  from { text-shadow:0 0 10px #ff1f1f; }
+  to { text-shadow:0 0 35px #ff1f1f,0 0 70px #ff0000; }
 }
 
-/* PROJECT LINKS CARDS */
+/* PROJECT CARDS */
 .projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 50px 20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+  padding:60px 20px;
 }
 .card {
-  background: rgba(20,0,0,0.85);
-  border-radius: 15px;
-  padding: 25px;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  border: 1px solid #330000;
+  background:rgba(0,0,0,0.8);
+  border-radius:18px;
+  padding:28px;
+  text-align:center;
+  border:1px solid #330000;
+  transition:transform 0.4s,box-shadow 0.4s;
 }
 .card:hover {
-  transform: translateY(-8px) rotate(-1deg);
-  box-shadow: 0 0 25px #ff1f1f, 0 0 50px #ff0000, 0 0 75px #ff3333;
+  transform:translateY(-7px) scale(1.02);
+  box-shadow:0 0 35px #ff1f1f,0 0 70px #ff0000;
 }
 .card h3 {
-  color: #ff1f1f;
-  font-family: 'Press Start 2P', cursive;
-  margin-bottom: 10px;
-  text-shadow: 0 0 5px #ff1f1f, 0 0 15px #ff0000;
+  color:#ff1f1f;
+  font-family:'Press Start 2P',cursive;
+  margin-bottom:10px;
 }
 .card a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-}
-.card a:hover {
-  color: #ff1f1f;
-  text-shadow: 0 0 5px #ff1f1f, 0 0 15px #ff0000;
-}
-
-/* BUTTON STYLE */
-.btn-link {
-  display:inline-block;
-  padding:10px 20px;
-  margin-top:10px;
-  background:#ff1f1f;
-  color:#0a0a0a;
-  border-radius:10px;
+  display:block;
+  margin-top:12px;
+  padding:12px 0;
   text-decoration:none;
   font-weight:bold;
+  font-size:18px;
+  border-radius:10px;
   transition:0.3s;
 }
-.btn-link:hover {
-  transform: scale(1.05) rotate(-1deg);
-  box-shadow: 0 0 20px #ff1f1f, 0 0 40px #ff3333, 0 0 60px #ff5555;
-}
+
+/* BUTTON CUSTOM STYLES */
+.btn1 { background:#ff1f1f;color:#0a0a0a; }
+.btn1:hover { background:#ff3c3c; }
+
+.btn2 { background:#ff9300;color:#0a0a0a; }
+.btn2:hover { background:#ffb44d; }
+
+.btn3 { background:#8f1fff;color:#0a0a0a; }
+.btn3:hover { background:#b16cff; }
 
 /* FOOTER */
 footer {
   text-align:center;
-  padding: 35px;
-  font-size: 14px;
-  color: #777;
+  padding:36px;
+  color:#aaa;
+  font-size:14px;
 }
 </style>
 </head>
 
 <body>
+
+<!-- Background Video -->
+<video id="bg-video" autoplay loop muted playsinline>
+  <source src="background.mp4" type="video/mp4">
+</video>
 
 <div id="tsparticles"></div>
 
@@ -142,18 +144,18 @@ footer {
 <section class="projects">
   <div class="card">
     <h3>PyAnimeCLI</h3>
-    <p>Tool Python per animazione CLI</p>
-    <a class="btn-link" href="https://pypi.org/project/pyanimecli/" target="_blank">Visita PyPI</a>
+    <p>Tool Python CLI animato</p>
+    <a class="btn1" href="https://pypi.org/project/pyanimecli/" target="_blank">Vai a PyPI</a>
   </div>
   <div class="card">
     <h3>YumaAPI</h3>
-    <p>API per progetti vari online</p>
-    <a class="btn-link" href="https://yumaapi.vercel.app/" target="_blank">Apri YumaAPI</a>
+    <p>API per progetti online</p>
+    <a class="btn2" href="https://yumaapi.vercel.app/" target="_blank">Apri YumaAPI</a>
   </div>
   <div class="card">
     <h3>Discord</h3>
-    <p>Contatta Diana su Discord</p>
-    <a class="btn-link" href="https://discord.com/users/not_diana__" target="_blank">Apri Discord</a>
+    <p>Contatta Diana</p>
+    <a class="btn3" href="https://discord.com/users/not_diana__" target="_blank">Apri Discord</a>
   </div>
 </section>
 
@@ -162,12 +164,12 @@ footer {
 <script>
 tsParticles.load("tsparticles", {
   particles: {
-    number: { value: 70, density: { enable: true, value_area: 900 } },
+    number: { value: 65, density: { enable: true, value_area: 900 } },
     color: { value: "#ff1f1f" },
     shape: { type: "circle" },
     opacity: { value: 0.7 },
     size: { value: 3 },
-    move: { enable: true, speed: 1.5 }
+    move: { enable: true, speed: 1.4 }
   },
   interactivity: {
     events: {
