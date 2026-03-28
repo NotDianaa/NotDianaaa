@@ -3,25 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diana – Portfolio Dark Dev & Gamer</title>
+<title>Diana – Dark Dev & Gamer</title>
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-<!-- tsParticles background -->
+<!-- tsParticles for animated background -->
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
 
 <style>
-/* --- GLOBAL --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* GLOBAL STYLES */
+* { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family: 'Roboto', sans-serif;
-  background: #0a0a10;
+  background: url('https://images.alphacoders.com/123/1234568.jpg') no-repeat center center fixed; /* Sostituisci con la tua immagine 4K/8K dark anime girl */
+  background-size: cover;
   color: #fff;
   overflow-x: hidden;
 }
 
-/* --- PARTICLE BACKGROUND --- */
+/* PARTICLE BACKGROUND */
 #tsparticles {
   position: fixed;
   width: 100%;
@@ -29,27 +30,27 @@ body {
   z-index: -1;
 }
 
-/* --- HEADER --- */
+/* HEADER */
 header {
   padding: 20px;
   text-align: center;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.6);
 }
 .logo {
   font-family: 'Press Start 2P', cursive;
-  color: #ff2d95;
+  color: #ff1f1f;
   font-size: 28px;
-  text-shadow: 0 0 10px #ff2d95;
+  text-shadow: 0 0 15px #ff1f1f, 0 0 30px #ff0000;
 }
 
-/* --- HERO --- */
+/* HERO SECTION */
 .hero {
-  padding: 120px 20px;
+  padding: 100px 20px;
   text-align: center;
 }
 .hero h1 {
   font-family: 'Press Start 2P', cursive;
-  color: #ff2d95;
+  color: #ff1f1f;
   font-size: 48px;
   animation: glow 2s ease-in-out infinite alternate;
 }
@@ -59,33 +60,34 @@ header {
   font-size: 18px;
 }
 @keyframes glow {
-  from { text-shadow: 0 0 10px #ff2d95; }
-  to { text-shadow: 0 0 25px #ff2d95; }
+  from { text-shadow: 0 0 10px #ff1f1f; }
+  to { text-shadow: 0 0 25px #ff1f1f, 0 0 50px #ff0000; }
 }
 
-/* --- PROJECT CARDS --- */
+/* PROJECT LINKS CARDS */
 .projects {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   padding: 50px 20px;
 }
 .card {
-  background: rgba(20,20,30,0.9);
+  background: rgba(20,0,0,0.85);
   border-radius: 15px;
-  padding: 22px;
-  text-align: left;
-  border: 1px solid #222;
+  padding: 25px;
+  text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #330000;
 }
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 25px #ff2d95, 0 0 45px #ff2d95;
+  transform: translateY(-8px) rotate(-1deg);
+  box-shadow: 0 0 25px #ff1f1f, 0 0 50px #ff0000, 0 0 75px #ff3333;
 }
 .card h3 {
-  color: #ff2d95;
+  color: #ff1f1f;
   font-family: 'Press Start 2P', cursive;
-  font-size: 20px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px #ff1f1f, 0 0 15px #ff0000;
 }
 .card a {
   color: #fff;
@@ -93,12 +95,30 @@ header {
   font-size: 16px;
 }
 .card a:hover {
-  color: #ff2d95;
+  color: #ff1f1f;
+  text-shadow: 0 0 5px #ff1f1f, 0 0 15px #ff0000;
 }
 
-/* --- FOOTER --- */
+/* BUTTON STYLE */
+.btn-link {
+  display:inline-block;
+  padding:10px 20px;
+  margin-top:10px;
+  background:#ff1f1f;
+  color:#0a0a0a;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:0.3s;
+}
+.btn-link:hover {
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 0 20px #ff1f1f, 0 0 40px #ff3333, 0 0 60px #ff5555;
+}
+
+/* FOOTER */
 footer {
-  text-align: center;
+  text-align:center;
   padding: 35px;
   font-size: 14px;
   color: #777;
@@ -121,19 +141,19 @@ footer {
 
 <section class="projects">
   <div class="card">
-    <h3>Progetto 1</h3>
-    <a href="#" target="_blank">💻 Link alla demo</a>
-    <p>Descrizione breve del progetto o tool.</p>
+    <h3>PyAnimeCLI</h3>
+    <p>Tool Python per animazione CLI</p>
+    <a class="btn-link" href="https://pypi.org/project/pyanimecli/" target="_blank">Visita PyPI</a>
   </div>
   <div class="card">
-    <h3>Progetto 2</h3>
-    <a href="#" target="_blank">🎮 Link al gioco / Minecraft</a>
-    <p>Descrizione breve di cosa fa.</p>
+    <h3>YumaAPI</h3>
+    <p>API per progetti vari online</p>
+    <a class="btn-link" href="https://yumaapi.vercel.app/" target="_blank">Apri YumaAPI</a>
   </div>
   <div class="card">
-    <h3>Progetto 3</h3>
-    <a href="#" target="_blank">💡 Link alle risorse</a>
-    <p>Link a documentazione/galleria personale ecc.</p>
+    <h3>Discord</h3>
+    <p>Contatta Diana su Discord</p>
+    <a class="btn-link" href="https://discord.com/users/not_diana__" target="_blank">Apri Discord</a>
   </div>
 </section>
 
@@ -142,12 +162,12 @@ footer {
 <script>
 tsParticles.load("tsparticles", {
   particles: {
-    number: { value: 50, density: { enable: true, value_area: 800 } },
-    color: { value: "#ff2d95" },
+    number: { value: 70, density: { enable: true, value_area: 900 } },
+    color: { value: "#ff1f1f" },
     shape: { type: "circle" },
-    opacity: { value: 0.6 },
-    size: { value: 4 },
-    move: { enable: true, speed: 1 }
+    opacity: { value: 0.7 },
+    size: { value: 3 },
+    move: { enable: true, speed: 1.5 }
   },
   interactivity: {
     events: {
