@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diana – Dark Dev & Gamer</title>
+<title>Diana – Dark Web Dev Portfolio</title>
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-<!-- tsParticles per le particelle -->
+<!-- tsParticles per particelle -->
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
 
 <style>
 /* RESET */
 * { margin:0; padding:0; box-sizing:border-box; }
-body, html { width:100%; height:100%; font-family:'Roboto',sans-serif; overflow-x:hidden; }
+body, html { width:100%; height:100%; font-family:'Roboto',sans-serif; overflow-x:hidden; background:#000; color:#fff; }
 
 /* VIDEO BACKGROUND */
 #bg-video {
@@ -23,7 +23,7 @@ body, html { width:100%; height:100%; font-family:'Roboto',sans-serif; overflow-
   width:100%; height:100%;
   object-fit:cover;
   z-index:-2;
-  opacity:0.75;
+  opacity:0.7;
 }
 
 /* PARTICLE BACKGROUND */
@@ -49,12 +49,12 @@ header {
 
 /* HERO */
 .hero {
-  padding:120px 20px;
+  padding:100px 20px;
   text-align:center;
 }
 .hero h1 {
   font-family:'Press Start 2P',cursive;
-  font-size:55px;
+  font-size:50px;
   color:#ff1f1f;
   animation:neonPulse 3s ease-in-out infinite alternate;
 }
@@ -76,7 +76,7 @@ header {
   padding:60px 20px;
 }
 .card {
-  background:rgba(0,0,0,0.8);
+  background:rgba(0,0,0,0.85);
   border-radius:18px;
   padding:28px;
   text-align:center;
@@ -101,17 +101,40 @@ header {
   font-size:18px;
   border-radius:10px;
   transition:0.3s;
+  color:#000;
 }
 
-/* BUTTON CUSTOM STYLES */
-.btn1 { background:#ff1f1f;color:#0a0a0a; }
+/* BUTTONS - OGNI UNO DIVERSO */
+.btn1 { background:#ff1f1f; }
 .btn1:hover { background:#ff3c3c; }
 
-.btn2 { background:#ff9300;color:#0a0a0a; }
+.btn2 { background:#ff9300; }
 .btn2:hover { background:#ffb44d; }
 
-.btn3 { background:#8f1fff;color:#0a0a0a; }
+.btn3 { background:#8f1fff; }
 .btn3:hover { background:#b16cff; }
+
+.btn4 { background:#22c55e; }
+.btn4:hover { background:#4ade80; }
+
+.btn5 { background:#06b6d4; }
+.btn5:hover { background:#22d3ee; }
+
+/* TERMINAL STYLE BOX */
+.terminal {
+  background:#000;
+  border:1px solid #ff1f1f;
+  border-radius:12px;
+  padding:20px;
+  font-family:'Roboto Mono', monospace;
+  margin-top:30px;
+  color:#0f0;
+  max-width:800px;
+  margin-left:auto;
+  margin-right:auto;
+  box-shadow:0 0 20px #ff1f1f,0 0 40px #ff0000;
+}
+.terminal p { margin:8px 0; }
 
 /* FOOTER */
 footer {
@@ -125,7 +148,7 @@ footer {
 
 <body>
 
-<!-- Background Video -->
+<!-- VIDEO BACKGROUND -->
 <video id="bg-video" autoplay loop muted playsinline>
   <source src="background.mp4" type="video/mp4">
 </video>
@@ -138,7 +161,7 @@ footer {
 
 <section class="hero">
   <h1>Diana – Dark Dev</h1>
-  <p>Gamer | Developer | Creator</p>
+  <p>Gamer | Developer | Creator | Hacker (fake)</p>
 </section>
 
 <section class="projects">
@@ -157,9 +180,28 @@ footer {
     <p>Contatta Diana</p>
     <a class="btn3" href="https://discord.com/users/not_diana__" target="_blank">Apri Discord</a>
   </div>
+  <div class="card">
+    <h3>SecureServer</h3>
+    <p>Server fittizio darknet</p>
+    <a class="btn4" href="#" target="_blank">Apri Server</a>
+  </div>
+  <div class="card">
+    <h3>SecretTools</h3>
+    <p>Tool hacker (fake)</p>
+    <a class="btn5" href="#" target="_blank">Apri Tools</a>
+  </div>
 </section>
 
-<footer>© 2026 Diana – Dark Dev & Gamer</footer>
+<section class="terminal">
+  <p>[Diana@darkweb]$ ping secure-server.local</p>
+  <p>Reply from 127.0.0.1: bytes=32 time<1ms TTL=64</p>
+  <p>[Diana@darkweb]$ connect secret-api</p>
+  <p>Connecting... SUCCESS</p>
+  <p>[Diana@darkweb]$ ./launch_tool.sh</p>
+  <p>Tool avviato in modalità stealth</p>
+</section>
+
+<footer>© 2026 Diana – Dark Web Dev Portfolio (tutto finto, per gioco)</footer>
 
 <script>
 tsParticles.load("tsparticles", {
