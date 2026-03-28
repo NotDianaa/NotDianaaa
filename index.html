@@ -3,102 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Il mio sito</title>
+<title>Diana Dark Dev</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
+/* --- GLOBAL --- */
+* { margin:0; padding:0; box-sizing:border-box; }
 body {
-  margin: 0;
-  font-family: Arial;
-  background: #0f172a;
-  color: white;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(160deg, #0d0d0d, #1a1a2e);
+  color: #fff;
+  overflow-x: hidden;
 }
 
+/* --- ANIMATED BACKGROUND --- */
+body::before {
+  content: "";
+  position: fixed;
+  top:0; left:0;
+  width: 100%;
+  height: 100%;
+  background: url('https://i.imgur.com/XkZ4rQd.png') repeat;
+  opacity: 0.1;
+  animation: moveBG 60s linear infinite;
+  z-index: -1;
+}
+
+@keyframes moveBG {
+  0% {background-position: 0 0;}
+  100% {background-position: 1000px 1000px;}
+}
+
+/* --- HEADER --- */
 header {
-  padding: 20px;
-  display: flex;
+  display:flex;
   justify-content: space-between;
+  align-items:center;
+  padding:20px 40px;
+  background: rgba(20,20,30,0.8);
+  backdrop-filter: blur(5px);
 }
 
 .logo {
-  font-weight: bold;
-  font-size: 20px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 24px;
+  color: #ff2d95;
+  letter-spacing: 2px;
 }
 
+/* --- HERO SECTION --- */
 .hero {
   text-align: center;
-  padding: 100px 20px;
+  padding: 150px 20px;
+  animation: fadeIn 2s ease forwards;
 }
 
 .hero h1 {
-  font-size: 40px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 48px;
+  color: #ff2d95;
+  text-shadow: 0 0 10px #ff2d95, 0 0 20px #ff2d95;
+  margin-bottom: 20px;
 }
 
 .hero p {
-  color: #94a3b8;
+  font-size: 20px;
+  color: #aaa;
+  margin-bottom: 40px;
 }
 
 .btn {
-  background: #22c55e;
-  padding: 12px 20px;
-  color: black;
-  border-radius: 8px;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 20px;
+  display:inline-block;
+  padding: 14px 28px;
+  color:#0d0d0d;
+  background: #ff2d95;
+  border-radius: 12px;
+  text-decoration:none;
+  font-weight:bold;
+  box-shadow: 0 0 10px #ff2d95, 0 0 20px #ff2d95;
+  transition: 0.3s;
 }
 
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff2d95, 0 0 40px #ff2d95;
+}
+
+/* --- SERVICES CARDS --- */
 .services {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 50px;
+  display:flex;
+  justify-content:center;
   flex-wrap: wrap;
+  gap: 30px;
+  padding: 80px 20px;
 }
 
 .card {
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 10px;
-  width: 250px;
+  background: rgba(20,20,30,0.8);
+  border-radius: 20px;
+  padding: 30px;
+  width: 280px;
+  text-align:center;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-footer {
-  text-align: center;
-  padding: 30px;
-  color: gray;
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px #ff2d95, 0 0 60px #ff2d95;
 }
+
+.card h3 {
+  color: #ff2d95;
+  margin-bottom: 15px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.card p {
+  color: #ccc;
+}
+
+/* --- FOOTER --- */
+footer {
+  text-align:center;
+  padding:40px;
+  color:#666;
+  font-size:14px;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeIn {
+  from {opacity:0; transform: translateY(50px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">Not_Diana</div>
+  <div class="logo">Diana</div>
+  <!-- Puoi aggiungere navbar qui se vuoi -->
 </header>
 
 <section class="hero">
-  <h1>Minecraft PvP Player</h1>
-  <p>Web Developer | Design | SEO</p>
+  <h1>Diana Dark Dev</h1>
+  <p>Web Developer & Gamer | Minecraft & Coding</p>
   <a href="#" class="btn">Contattami</a>
 </section>
 
 <section class="services">
   <div class="card">
     <h3>Web Design</h3>
-    <p>Siti moderni e veloci</p>
+    <p>Siti moderni, animati e veloci</p>
   </div>
   <div class="card">
     <h3>Sviluppo</h3>
     <p>Codice pulito e performante</p>
   </div>
   <div class="card">
-    <h3>SEO</h3>
-    <p>Ottimizzazione Google</p>
+    <h3>Gaming</h3>
+    <p>Passione per Minecraft e altri giochi</p>
   </div>
 </section>
 
 <footer>
-  © 2026 - Not_Diana
+  © 2026 Diana - Dark Dev & Gamer
 </footer>
 
 </body>
