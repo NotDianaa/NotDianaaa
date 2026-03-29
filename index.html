@@ -3,29 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Not_Diana </title>
+<title>Not_Diana</title>
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-<!-- tsParticles -->
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
 
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body, html { width:100%; height:100%; font-family:'Roboto',sans-serif; overflow-x:hidden; background:#000; color:#fff; }
 
-/* VIDEO BACKGROUND */
+html { scroll-behavior:smooth; }
+
+body {
+  font-family:'Roboto',sans-serif;
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* VIDEO */
 #bg-video {
   position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
+  width:100%;
+  height:100%;
   object-fit:cover;
   z-index:-2;
   opacity:0.6;
 }
 
-/* PARTICLE BACKGROUND */
+/* PARTICLES */
 #tsparticles {
   position:fixed;
   width:100%;
@@ -35,123 +41,115 @@ body, html { width:100%; height:100%; font-family:'Roboto',sans-serif; overflow-
 
 /* HEADER */
 header {
-  padding:20px; 
+  padding:20px;
   text-align:center;
-  background:rgba(0,0,0,0.55);
+  background:rgba(0,0,0,0.6);
 }
 .logo {
-  font-family:'Press Start 2P',cursive;
+  font-family:'Press Start 2P';
   color:#ff1f1f;
-  font-size:30px;
-  text-shadow:0 0 15px #ff1f1f,0 0 30px #ff0000;
+  font-size:28px;
+  text-shadow:0 0 15px red;
 }
 
 /* HERO */
 .hero {
-  padding:100px 20px;
+  padding:140px 20px;
   text-align:center;
+  border-bottom:1px solid rgba(255,0,0,0.2);
 }
 .hero h1 {
-  font-family:'Press Start 2P',cursive;
-  font-size:50px;
+  font-family:'Press Start 2P';
+  font-size:42px;
   color:#ff1f1f;
-  animation:neonPulse 3s ease-in-out infinite alternate;
+  animation:glow 3s infinite alternate;
 }
-.hero p { color:#ddd; margin-top:10px; font-size:20px; }
-@keyframes neonPulse {
-  from { text-shadow:0 0 10px #ff1f1f; }
-  to { text-shadow:0 0 35px #ff1f1f,0 0 70px #ff0000; }
+.hero p { color:#ccc; margin-top:10px; }
+
+@keyframes glow {
+  from { text-shadow:0 0 10px red; }
+  to { text-shadow:0 0 40px red; }
 }
 
-/* PROJECT CARDS */
+/* GRID */
 .projects {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:24px;
   padding:60px 20px;
 }
+
+/* CARD */
 .card {
   background:rgba(0,0,0,0.85);
   border-radius:18px;
   padding:20px;
   text-align:center;
   border:1px solid #330000;
-  transition:transform 0.4s,box-shadow 0.4s;
+  transition:0.4s;
 }
 .card:hover {
-  transform:translateY(-7px) scale(1.02);
-  box-shadow:0 0 35px #ff1f1f,0 0 70px #ff0000;
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 0 30px red;
 }
 .card h3 {
   color:#ff1f1f;
-  font-family:'Press Start 2P',cursive;
-  margin-bottom:10px;
+  font-family:'Press Start 2P';
+  font-size:14px;
 }
-.card p { color:#ccc; margin-bottom:10px; }
+.card p { color:#aaa; margin:10px 0; }
+
 .card img {
   width:100%;
-  border-radius:12px;
-  margin-bottom:12px;
   height:160px;
   object-fit:cover;
+  border-radius:10px;
+  margin-bottom:10px;
 }
+
+/* BUTTON */
 .card a {
   display:block;
-  margin:8px 0;
-  padding:10px 0;
+  margin:6px 0;
+  padding:10px;
+  border-radius:8px;
   text-decoration:none;
   font-weight:bold;
-  font-size:16px;
-  border-radius:8px;
-  transition:0.3s;
   color:#000;
 }
 
-/* BUTTONS COLORS */
 .btn1 { background:#ff1f1f; }
-.btn1:hover { background:#ff3c3c; }
 .btn2 { background:#ff9300; }
-.btn2:hover { background:#ffb44d; }
 .btn3 { background:#8f1fff; }
-.btn3:hover { background:#b16cff; }
 .btn4 { background:#22c55e; }
-.btn4:hover { background:#4ade80; }
 .btn5 { background:#06b6d4; }
-.btn5:hover { background:#22d3ee; }
 .btn6 { background:#facc15; }
-.btn6:hover { background:#ffe066; }
 
-/* TERMINAL STYLE BOX */
+/* TERMINAL */
 .terminal {
   background:#000;
-  border:1px solid #ff1f1f;
-  border-radius:12px;
+  border:1px solid red;
   padding:20px;
-  font-family:'Roboto Mono', monospace;
-  margin-top:30px;
-  color:#0f0;
+  margin:60px auto;
   max-width:900px;
-  margin-left:auto;
-  margin-right:auto;
-  box-shadow:0 0 20px #ff1f1f,0 0 40px #ff0000;
+  font-family:'Roboto Mono';
+  color:#0f0;
+  box-shadow:0 0 20px red;
 }
-.terminal p { margin:8px 0; }
 
 /* FOOTER */
 footer {
   text-align:center;
-  padding:36px;
-  color:#aaa;
-  font-size:14px;
+  padding:30px;
+  color:#888;
 }
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO BACKGROUND -->
-<video id="bg-video" autoplay loop muted playsinline>
-  <source src="https://motionbgs.com/abstract-dna/video.mp4" type="video/mp4">
+<video id="bg-video" autoplay loop muted>
+  <source src="https://motionbgs.com/abstract-dna/video.mp4">
 </video>
 
 <div id="tsparticles"></div>
@@ -160,81 +158,112 @@ footer {
   <div class="logo">DIANA</div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <h1>Diana – Dark Dev</h1>
   <p>Gamer | Developer | Creator</p>
 </section>
 
+<!-- PROJECTS -->
 <section class="projects">
-  <!-- Prominence -->
   <div class="card">
-    <img src="https://prominencerpg.com/wp-content/uploads/2024/10/Prominence-II-RPG-Hasturian-Era.webp" alt="Prominence">
+    <img src="https://prominencerpg.com/wp-content/uploads/2024/10/Prominence-II-RPG-Hasturian-Era.webp">
     <h3>Prominence</h3>
     <p>Hasturian Era</p>
-    <a class="btn1" https://rpg.prominence.wiki/hasturian-era" target="_blank">Wiki</a>
-    <a class="btn6" href="https://www.youtube.com/watch?v=QIwFXTVn-5o" target="_blank">4.0</a>
+    <a class="btn1" href="https://rpg.prominence.wiki/hasturian-era" target="_blank">Wiki</a>
   </div>
 
-  <!-- The Mimicer 2.0 -->
   <div class="card">
-    <img src="https://tse3.mm.bing.net/th/id/OIP.6cGxNd9VaoR9cXcgVIfg_wHaEK?rs=1&pid=ImgDetMain&o=7&rm=3&adlt=strict" alt="YumaAPI">
+    <img src="https://tse3.mm.bing.net/th/id/OIP.6cGxNd9VaoR9cXcgVIfg_wHaEK">
     <h3>Mimicer</h3>
-    <p>The Mimicer 1.0</p>
-    <a class="btn2" href="https://www.curseforge.com/minecraft/mc-mods/the-mimicer">1.19</a>
-    <a class="btn6" href="https://www.curseforge.com/minecraft/mc-mods/the-mimic-port/files/6421614" target="_blank">1.20</a>
+    <p>Minecraft Mod</p>
+    <a class="btn2" href="#">Download</a>
   </div>
 
-  <!-- Discord -->
   <div class="card">
-    <img src="https://img.freepik.com/premium-photo/discord-logo-with-3d-render-blurred-glass-material-pulsating-glow-purple-white-color-scheme-iso_1020495-692258.jpg" alt="Discord">
+    <img src="https://img.freepik.com/premium-photo/discord-logo">
     <h3>Discord</h3>
-    <p>Contatta Diana</p>
-    <a class="btn3" href="https://discord.com/users/not_diana__" target="_blank">Apri Discord</a>
-  </div>
-
-  <!-- NukPackSQ -->
-  <div class="card">
-    <img src="https://cdn.beacons.ai/user_content/7QtPf8lGOydXxWBIbbcmIKgIuaG3/referenced_images/668e8761-1498-4637-874c-4c57274b13fb__store__product-image__f5653e3f-6538-4266-af0c-e1d87f4feee8__3c6bac6e-874b-4b5e-8351-6738d31715ba.jpg?t=1715601680504" alt="NukPack">
-    <h3>NukPackSQ</h3>
-    <p>!3than</p>
-    <a class="btn4" href="https://github.com/sono3than" target="_blank">Apri sito</a>
-  </div>
-
-  <!-- The Broken Script 2.0 -->
-  <div class="card">
-    <img src="https://cdn.modrinth.com/data/TocuaDpt/images/d50e858c019e175fba02ac77b15a6ded7c7aafbf.png" alt="Broken Script">
-    <h3>The Broken Script 2.0</h3>
-    <p>Trailer</p>
-    <a class="btn5"https://www.mediafire.com/file/fmgibx9fbenmlyx/The+Broken+Script+2.0+Trailer.mkv/file" target="_blank">Here I Am</a>
+    <p>Contattami</p>
+    <a class="btn3" href="https://discord.com/users/not_diana__" target="_blank">Apri</a>
   </div>
 </section>
 
-<section class="terminal">
-  <p>[Diana@dev]$ ping server.local</p>
-  <p>Reply from 127.0.0.1: bytes=32 time&lt;1ms TTL=64</p>
-  <p>[Diana@dev]$ connect api.example</p>
-  <p>Connecting... SUCCESS</p>
-  <p>[Diana@dev]$ ./launch_tool.sh</p>
-  <p>Tool avviato</p>
+<!-- TOOLS -->
+<section class="hero">
+  <h1>Tools</h1>
+  <p>I miei strumenti</p>
 </section>
 
-<footer>© 2026 Diana </footer>
+<section class="projects">
+  <div class="card">
+    <h3>API Tool</h3>
+    <p>Custom API</p>
+    <a class="btn1" href="#">Apri</a>
+  </div>
+
+  <div class="card">
+    <h3>Launcher</h3>
+    <p>Dev launcher</p>
+    <a class="btn2" href="#">Download</a>
+  </div>
+</section>
+
+<!-- MODS -->
+<section class="hero">
+  <h1>Mods</h1>
+</section>
+
+<section class="projects">
+  <div class="card">
+    <h3>Addon Pack</h3>
+    <p>Extra content</p>
+    <a class="btn4" href="#">Apri</a>
+  </div>
+
+  <div class="card">
+    <h3>New Mod</h3>
+    <p>WIP</p>
+    <a class="btn3" href="#">Scopri</a>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section class="hero">
+  <h1>Social</h1>
+</section>
+
+<section class="projects">
+  <div class="card">
+    <h3>YouTube</h3>
+    <p>Video</p>
+    <a class="btn6" href="#">Vai</a>
+  </div>
+
+  <div class="card">
+    <h3>GitHub</h3>
+    <p>Repo</p>
+    <a class="btn5" href="#">Apri</a>
+  </div>
+</section>
+
+<!-- TERMINAL -->
+<div class="terminal">
+  <p>[Diana@dev]$ system.boot</p>
+  <p>Loading modules...</p>
+  <p>Success ✔</p>
+  <p>[Diana@dev]$ connect server</p>
+  <p>Connected</p>
+</div>
+
+<footer>© 2026 Diana</footer>
 
 <script>
 tsParticles.load("tsparticles", {
   particles: {
-    number: { value: 65, density: { enable: true, value_area: 900 } },
+    number: { value: 70 },
     color: { value: "#ff1f1f" },
-    shape: { type: "circle" },
-    opacity: { value: 0.7 },
     size: { value: 3 },
-    move: { enable: true, speed: 1.4 }
-  },
-  interactivity: {
-    events: {
-      onhover: { enable: true, mode: "repulse" },
-      onclick: { enable: true, mode: "push" }
-    }
+    move: { enable: true, speed: 1 }
   }
 });
 </script>
