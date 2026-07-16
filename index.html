@@ -3,84 +3,343 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Not_Diana</title>
+<title>Not_Diana - K-Pop List</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!-- Font standard e font K-pop specifici -->
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&family=Poppins:wght@700&family=Rozha+One&family=Lexend:wght@900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
 
 <style>
+/* --- RESET & STILI BASE --- */
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { font-family:'Roboto',sans-serif; background:#000; color:#fff; overflow-x:hidden; }
 
-/* Overlay per la lista nomi */
-#nomi-overlay {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.95);
-  z-index: 999;
-  text-align: center;
-  padding-top: 100px;
-}
-#nomi-overlay h2 { color: #ff1f1f; margin-bottom: 20px; }
-#nomi-overlay ul { list-style: none; color: #fff; font-size: 20px; }
-#nomi-overlay li { margin: 10px; }
-.close-btn { cursor: pointer; color: #ff1f1f; margin-top: 30px; display: block; font-weight: bold; }
-
-/* Il resto del tuo CSS resta uguale */
-#bg-video { position:fixed; width:100%; height:100%; object-fit:cover; z-index:-2; opacity:0.6; }
+/* --- SFONDI COMUNI --- */
+#bg-video { position:fixed; width:100%; height:100%; object-fit:cover; z-index:-2; opacity:0.3; }
 #tsparticles { position:fixed; width:100%; height:100%; z-index:-1; }
+
+/* --- HOME PAGE (NASCOSTA QUANDO SI APRE LA LISTA) --- */
+#main-app { display: block; }
+
+/* HEADER HOME */
 header { padding:20px; text-align:center; background:rgba(0,0,0,0.6); }
 .logo { font-family:'Press Start 2P'; color:#ff1f1f; font-size:28px; text-shadow:0 0 15px red; }
+
+/* SEZIONI HERO */
 .hero { padding:140px 20px; text-align:center; border-bottom:1px solid rgba(255,0,0,0.2); }
 .hero h1 { font-family:'Press Start 2P'; font-size:42px; color:#ff1f1f; animation:glow 3s infinite alternate; }
+.hero p { color:#ccc; margin-top:10px; }
+
 @keyframes glow { from { text-shadow:0 0 10px red; } to { text-shadow:0 0 40px red; } }
+
+/* GRID E CARDS */
 .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; padding:60px 20px; }
 .card { background:rgba(0,0,0,0.85); border-radius:18px; padding:20px; text-align:center; border:1px solid #330000; transition:0.4s; }
+.card:hover { transform:translateY(-6px) scale(1.02); box-shadow:0 0 30px red; }
+.card h3 { color:#ff1f1f; font-family:'Press Start 2P'; font-size:14px; }
+.card p { color:#aaa; margin:10px 0; }
+.card img { width:100%; height:160px; object-fit:cover; border-radius:10px; margin-bottom:10px; }
+
+/* BOTTONI */
 .card a { display:block; margin:6px 0; padding:10px; border-radius:8px; text-decoration:none; font-weight:bold; color:#000; cursor:pointer; }
-.btn4 { background:#22c55e; }
+.btn4 { background:#22c55e; } /* Colore originale per il tasto community */
+
+/* TERMINAL */
+.terminal { background:#000; border:1px solid red; padding:20px; margin:60px auto; max-width:900px; font-family:'Roboto Mono'; color:#0f0; box-shadow:0 0 20px red; }
+footer { text-align:center; padding:30px; color:#888; }
+
+/* =========================================
+   STILI PAGINA K-POP LIST (NOMI)
+   ========================================= */
+#kpop-page {
+    display: none; /* Nascosta di default */
+    position: absolute;
+    top: 0; left: 0; width: 100%;
+    background-color: #000;
+    z-index: 1000;
+    overflow-y: auto; /* Permette lo scroll */
+}
+
+.kpop-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Pulsante indietro fisso in alto a sinistra */
+#back-to-home {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background: #ff1f1f;
+    color: #000;
+    text-decoration: none;
+    font-family: 'Press Start 2P';
+    font-size: 10px;
+    border-radius: 5px;
+    z-index: 1001;
+    box-shadow: 0 0 10px #ff1f1f;
+}
+
+/* --- TITOLI GRUPPI (Sticky effect) --- */
+.group-section {
+    position: relative;
+    padding-top: 150px; /* Spazio per far fermare il titolo */
+    padding-bottom: 50px;
+}
+
+.sticky-title {
+    position: sticky;
+    top: 80px; /* Si ferma poco sotto il tasto indietro */
+    font-size: 60px;
+    text-transform: uppercase;
+    z-index: 1;
+    margin-bottom: 30px;
+    /* Altezza fissa per il titolo per evitare che il contenuto ci vada sopra troppo presto */
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- LISTA MEMBRI --- */
+.members-list {
+    background: rgba(20, 20, 20, 0.8);
+    border-radius: 20px;
+    padding: 30px;
+    list-style: none;
+    position: relative;
+    z-index: 0; /* Sotto al titolo sticky */
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.members-list li {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 22px;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: #e0e0e0;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.members-list li:last-child { border-bottom: none; }
+
+/* --- STILI SPECIFICI PER GRUPPO --- */
+
+/* 1. BLACKPINK (Rosso/Nero Neon) */
+.bp-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: #ff003c; /* Rosa Neon */
+    text-shadow: 0 0 5px #ff003c, 0 0 10px #ff003c, 0 0 20px #ff003c;
+    -webkit-text-stroke: 2px black; /* Bordo nero */
+}
+.bp-list { border-color: #ff003c; box-shadow: 0 0 15px rgba(255,0,60,0.3); }
+
+/* 2. TWICE (Colori Pastello - Candy Bong) */
+.twice-title {
+    font-family: 'Rozha One', serif;
+    background: linear-gradient(to right, #ffc0cb, #87cefa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 8px #ffc0cb);
+}
+.twice-list { border-color: #ffc0cb; }
+
+/* 3. STRAY KIDS (Rosso/Bianco aggressivo) */
+.skz-title {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 900;
+    color: #ff0000;
+    text-shadow: 3px 3px 0 #fff; /* Effetto logo SKZ */
+    letter-spacing: -2px;
+}
+.skz-list { border-color: #ff0000; }
+
+/* 4. BABYMONSTER (Rosso scuro/Grintoso) */
+.bm-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    color: #b30000;
+    text-shadow: 0 0 5px #ff4d4d;
+}
+.bm-list { border-color: #b30000; }
+
+/* Responsive per schermi piccoli */
+@media (max-width: 768px) {
+    .sticky-title { font-size: 40px; height: 60px; }
+    .members-list li { font-size: 16px; }
+    .hero h1 { font-size: 28px; }
+}
 </style>
 </head>
 
 <body>
 
-<!-- POPUP NOMI -->
-<div id="nomi-overlay">
-  <h2>Lista Nomi</h2>
-  <ul>
-    <li>Diana</li>
-    <li>Utente 1</li>
-    <li>Utente 2</li>
-  </ul>
-  <span class="close-btn" onclick="document.getElementById('nomi-overlay').style.display='none'">CHIUDI</span>
-</div>
-
-<video id="bg-video" autoplay loop muted>
-  <source src="https://motionbgs.com/abstract-dna/video.mp4">
+<!-- VIDEO DI SFONDO E PARTICELLE (Comuni) -->
+<video id="bg-video" autoplay loop muted playsinline>
+  <source src="https://motionbgs.com/abstract-dna/video.mp4" type="video/mp4">
 </video>
 <div id="tsparticles"></div>
 
-<header><div class="logo">DIANA</div></header>
+<!-- =========================================
+     CONTENUTO HOME PAGE (ID: main-app)
+     ========================================= -->
+<div id="main-app">
+    <header><div class="logo">DIANA</div></header>
 
-<section class="hero">
-  <h1>Community</h1>
-</section>
+    <section class="hero">
+        <h1>Diana – Dark Dev</h1>
+        <p>Gamer | Developer | Creator | K-Pop Stan</p>
+    </section>
 
-<section class="projects">
-  <div class="card">
-    <h3>Nomi</h3>
-    <p>Visualizza lista</p>
-    <!-- Il pulsante ora attiva il popup -->
-    <a class="btn4" onclick="document.getElementById('nomi-overlay').style.display='block'">Visualizza</a>
-  </div>
-</section>
+    <!-- Sezione modificata per aprire la pagina K-Pop -->
+    <section class="projects">
+        <div class="card">
+            <h3>K-Pop</h3>
+            <p>I miei gruppi preferiti</p>
+            <a class="btn4" onclick="showKpopList()">Visualizza</a>
+        </div>
+    </section>
 
-<!-- ... (il resto del tuo codice originale) ... -->
+    <!-- SEZIONI ORIGINALI -->
+    <section class="projects">
+        <div class="card">
+            <img src="https://prominencerpg.com/wp-content/uploads/2024/10/Prominence-II-RPG-Hasturian-Era.webp" alt="Prominence">
+            <h3>Prominence</h3>
+            <p>Hasturian Era</p>
+            <a class="btn1" href="https://rpg.prominence.wiki/hasturian-era" target="_blank">Wiki</a>
+        </div>
+        <div class="card">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.6cGxNd9VaoR9cXcgVIfg_wHaEK" alt="Mimicer">
+            <h3>Mimicer</h3>
+            <p>Minecraft Mod</p>
+            <a class="btn2" href="#">Download</a>
+        </div>
+        <div class="card">
+            <img src="https://img.freepik.com/premium-photo/discord-logo" alt="Discord">
+            <h3>Discord</h3>
+            <p>Contattami</p>
+            <a class="btn3" href="https://discord.com/users/not_diana__" target="_blank">Apri</a>
+        </div>
+    </section>
 
+    <div class="terminal">
+        <p>[Diana@dev]$ system.boot</p>
+        <p>Loading K-Pop modules...</p>
+        <p>Success ✔</p>
+    </div>
+
+    <footer>© 2026 Diana</footer>
+</div>
+
+
+<!-- =========================================
+     PAGINA NOMI K-POP (ID: kpop-page)
+     INIZIALMENTE NASCOSTA
+     ========================================= -->
+<div id="kpop-page">
+    <!-- Pulsante per tornare indietro -->
+    <a href="#" id="back-to-home" onclick="hideKpopList()">← TORNA INDIETRO</a>
+
+    <div class="kpop-container">
+
+        <!-- BLACKPINK -->
+        <div class="group-section">
+            <div class="sticky-title bp-title">BlackPink</div>
+            <ul class="members-list bp-list">
+                <li>JISOO</li>
+                <li>JENNIE</li>
+                <li>ROSÉ</li>
+                <li>LISA</li>
+            </ul>
+        </div>
+
+        <!-- TWICE -->
+        <div class="group-section">
+            <div class="sticky-title twice-title">TWICE</div>
+            <ul class="members-list twice-list">
+                <li>NAYEON</li>
+                <li>JEONGYEON</li>
+                <li>MOMO</li>
+                <li>SANA</li>
+                <li>JIHYO</li>
+                <li>MINA</li>
+                <li>DAHYUN</li>
+                <li>CHAEYOUNG</li>
+                <li>TZUYU</li>
+            </ul>
+        </div>
+
+        <!-- STRAY KIDS -->
+        <div class="group-section">
+            <div class="sticky-title skz-title">Stray Kids</div>
+            <ul class="members-list skz-list">
+                <li>BANG CHAN</li>
+                <li>LEE KNOW</li>
+                <li>CHANGBIN</li>
+                <li>HYUNJIN</li>
+                <li>HAN</li>
+                <li>FELIX</li>
+                <li>SEUNGMIN</li>
+                <li>I.N</li>
+            </ul>
+        </div>
+
+        <!-- BABYMONSTER -->
+        <div class="group-section">
+            <div class="sticky-title bm-title">BabyMonster</div>
+            <ul class="members-list bm-list">
+                <li>RUKA</li>
+                <li>PHARITA</li>
+                <li>ASA</li>
+                <li>AHYEON</li>
+                <li>RAMI</li>
+                <li>RORA</li>
+                <li>CHIQUITA</li>
+            </ul>
+        </div>
+
+        <div style="height: 100px;"></div> <!-- Spazio extra alla fine -->
+
+    </div>
+</div>
+
+
+<!-- SCRIPT JAVASCRIPT PER GESTIRE LA NAVIGAZIONE E LE PARTICELLE -->
 <script>
+// Funzione per mostrare la lista K-Pop e nascondere la home
+function showKpopList() {
+    document.getElementById('main-app').style.display = 'none';
+    document.getElementById('kpop-page').style.display = 'block';
+    window.scrollTo(0, 0); // Torna all'inizio della nuova pagina
+}
+
+// Funzione per tornare alla home
+function hideKpopList() {
+    document.getElementById('kpop-page').style.display = 'none';
+    document.getElementById('main-app').style.display = 'block';
+    window.scrollTo(0, 0);
+}
+
+// Configurazione tsParticles (Mantenuta quella originale)
 tsParticles.load("tsparticles", {
-  particles: { number: { value: 70 }, color: { value: "#ff1f1f" }, size: { value: 3 }, move: { enable: true, speed: 1 } }
+  particles: {
+    number: { value: 70 },
+    color: { value: "#ff1f1f" },
+    shape: { type: "circle" },
+    opacity: { value: 0.5 },
+    size: { value: 3 },
+    move: { enable: true, speed: 1, direction: "none", random: true, out_mode: "out" }
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
+    modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+  },
+  retina_detect: true
 });
 </script>
 
