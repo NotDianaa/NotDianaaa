@@ -1,99 +1,54 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-<meta charset="UTF-8">
-<title>Not_Diana</title>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
-
 <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Roboto',sans-serif; background:#000; color:#fff; overflow-x:hidden; }
+    /* Animazione Neon Multicolore */
+    @keyframes neon-flicker {
+        0%, 100% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #f0f, 0 0 40px #f0f; border-color: #f0f; }
+        50% { text-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 10px #0ff, 0 0 20px #0ff; border-color: #0ff; }
+    }
     
-    #main-app { display: block; }
-    header { padding:40px; text-align:center; background:rgba(0,0,0,0.6); }
-    .logo { font-family:'Press Start 2P'; color:#ff1f1f; font-size:32px; text-shadow:0 0 15px red; }
-    
-    .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; padding:40px; }
-    .card { background:rgba(0,0,0,0.8); border:1px solid #330000; padding:20px; border-radius:15px; text-align:center; }
-    .card a { display:block; margin-top:10px; padding:10px; background:#ff1f1f; color:#000; text-decoration:none; font-weight:bold; border-radius:5px; cursor:pointer; }
-    
-    /* PAGINA IDOL */
-    #kpop-page { display:none; background:#000; padding:40px; }
-    .back-btn { position:fixed; top:20px; left:20px; background:#ff1f1f; padding:10px; cursor:pointer; font-family:'Press Start 2P'; z-index:100; }
-    .group-wrap { margin-bottom: 80px; text-align:center; }
-    .sticky-title { font-family:'Press Start 2P'; font-size:32px; margin-bottom:30px; text-shadow:0 0 15px currentColor; }
-    .members-list { list-style:none; font-family:'Roboto Mono'; font-size:22px; font-weight:bold; line-height:2; }
+    .neon-member {
+        padding: 15px;
+        border: 2px solid;
+        border-radius: 10px;
+        text-align: center;
+        font-family: 'Roboto Mono', monospace;
+        font-weight: bold;
+        animation: neon-flicker 2s infinite alternate;
+        margin: 10px;
+    }
+
+    /* Griglia a due colonne */
+    .members-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Due colonne */
+        gap: 20px;
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
 </style>
-</head>
 
-<body>
-<div id="main-app">
-    <header><div class="logo">DIANA</div></header>
-    <section class="projects">
-        <div class="card"><h3>Prominence</h3><a href="https://rpg.prominence.wiki/hasturian-era" target="_blank">Wiki</a></div>
-        <div class="card"><h3>K-Pop Idols</h3><a onclick="document.getElementById('main-app').style.display='none'; document.getElementById('kpop-page').style.display='block';">Visualizza</a></div>
-        <div class="card"><h3>Discord</h3><a href="https://discord.com/users/not_diana__" target="_blank">Apri</a></div>
-        <div class="card"><h3>RedTiger</h3><a href="https://github.com/NotDianaa/RedTiger">Apri</a></div>
-    </section>
-</div>
-
-<div id="kpop-page">
-    <div class="back-btn" onclick="document.getElementById('kpop-page').style.display='none'; document.getElementById('main-app').style.display='block';">← HOME</div>
-
-    <div class="group-wrap"><h2 style="color:#ff007f" class="sticky-title">BLACKPINK</h2>
-        <ul class="members-list">
-            <li style="color:#ff69b4">JISOO</li><li style="color:#ff1493">JENNIE</li><li style="color:#ffb6c1">ROSÉ</li><li style="color:#ff00ff">LISA</li>
-        </ul>
-    </div>
-
-    <div class="group-wrap"><h2 style="color:#a020f0" class="sticky-title">BTS</h2>
-        <ul class="members-list">
-            <li style="color:#9370db">RM</li><li style="color:#ba55d3">JIN</li><li style="color:#8a2be2">SUGA</li><li style="color:#9932cc">J-HOPE</li><li style="color:#800080">JIMIN</li><li style="color:#4b0082">V</li><li style="color:#dda0dd">JUNGKOOK</li>
-        </ul>
-    </div>
-
-    <div class="group-wrap"><h2 style="color:#ffc0cb" class="sticky-title">TWICE</h2>
-        <ul class="members-list">
-            <li style="color:#ffb6c1">NAYEON</li><li style="color:#dda0dd">JEONGYEON</li><li style="color:#ff69b4">MOMO</li><li style="color:#add8e6">SANA</li><li style="color:#87cefa">JIHYO</li><li style="color:#ffc0cb">MINA</li><li style="color:#ff8c00">DAHYUN</li><li style="color:#ff1493">CHAEYOUNG</li><li style="color:#87ceeb">TZUYU</li>
-        </ul>
-    </div>
-
-    <div class="group-wrap"><h2 style="color:#ff4500" class="sticky-title">STRAY KIDS</h2>
-        <ul class="members-list">
-            <li style="color:#ff4500">BANG CHAN</li><li style="color:#ff6347">LEE KNOW</li><li style="color:#ff8c00">CHANGBIN</li><li style="color:#ff7f50">HYUNJIN</li><li style="color:#ff4500">HAN</li><li style="color:#ff6347">FELIX</li><li style="color:#ff8c00">SEUNGMIN</li><li style="color:#ff7f50">I.N</li>
-        </ul>
-    </div>
-
-    <div class="group-wrap"><h2 style="color:#8a2be2" class="sticky-title">(G)I-DLE</h2>
-        <ul class="members-list">
-            <li style="color:#ff7675">SOYEON</li><li style="color:#fab1a0">MIYEON</li><li style="color:#fd79a8">MINNIE</li><li style="color:#ff9ff3">YUQI</li><li style="color:#feca57">SHUHUA</li>
-        </ul>
-    </div>
-
-    <div class="group-wrap"><h2 style="color:#3498db" class="sticky-title">NEWJEANS</h2>
-        <ul class="members-list">
-            <li style="color:#74b9ff">MINJI</li><li style="color:#a29bfe">HANNI</li><li style="color:#81ecec">DANIELLE</li><li style="color:#fab1a0">HAERIN</li><li style="color:#ffeaa7">HYEIN</li>
-        </ul>
-    </div>
-
-    <div class="group-wrap"><h2 style="color:#ff1493" class="sticky-title">BABYMONSTER</h2>
-        <ul class="members-list">
-            <li style="color:#ff69b4">RUKA</li><li style="color:#ffb6c1">PHARITA</li><li style="color:#ff00ff">ASA</li><li style="color:#ff85c1">AHYEON</li><li style="color:#ff69b4">RAMI</li><li style="color:#ffb6c1">RORA</li><li style="color:#ff00ff">CHIQUITA</li>
-        </ul>
-    </div>
-    
-    <div class="group-wrap"><h2 style="color:#f1c40f" class="sticky-title">IVE</h2>
-        <ul class="members-list">
-            <li style="color:#f1c40f">WONYOUNG</li><li style="color:#e67e22">YUJIN</li><li style="color:#f39c12">GAEUL</li><li style="color:#f1c40f">LIZ</li><li style="color:#e67e22">REI</li><li style="color:#f39c12">LEESEO</li>
-        </ul>
-    </div>
-
-    <div class="group-wrap"><h2 style="color:#00ffff" class="sticky-title">SEVENTEEN</h2>
-        <ul class="members-list">
-            <li style="color:#74b9ff">S.COUPS</li><li style="color:#81ecec">JEONGHAN</li><li style="color:#a29bfe">JOSHUA</li><li style="color:#74b9ff">JUN</li><li style="color:#81ecec">HOSHI</li><li style="color:#a29bfe">WONWOO</li><li style="color:#74b9ff">WOOZI</li>
-        </ul>
+<!-- Esempio di come implementare i gruppi (ripeti per ogni gruppo) -->
+<div class="group-wrap">
+    <h2 style="color:#ff007f" class="sticky-title">BLACKPINK</h2>
+    <div class="members-grid">
+        <div class="neon-member" style="color:#ff69b4">JISOO</div>
+        <div class="neon-member" style="color:#ff1493">JENNIE</div>
+        <div class="neon-member" style="color:#ffb6c1">ROSÉ</div>
+        <div class="neon-member" style="color:#ff00ff">LISA</div>
     </div>
 </div>
-</body>
-</html>
+
+<div class="group-wrap">
+    <h2 style="color:#a020f0" class="sticky-title">BTS</h2>
+    <div class="members-grid">
+        <div class="neon-member" style="color:#9370db">RM</div>
+        <div class="neon-member" style="color:#ba55d3">JIN</div>
+        <div class="neon-member" style="color:#8a2be2">SUGA</div>
+        <div class="neon-member" style="color:#9932cc">J-HOPE</div>
+        <div class="neon-member" style="color:#800080">JIMIN</div>
+        <div class="neon-member" style="color:#4b0082">V</div>
+        <div class="neon-member" style="color:#dda0dd">JUNGKOOK</div>
+    </div>
+</div>
+
+<!-- Aggiungi gli altri gruppi nello stesso formato -->
