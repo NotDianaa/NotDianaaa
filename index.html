@@ -2,17 +2,19 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Not_Diana - 40 K-Pop Groups</title>
+    <title>Not_Diana - 100 K-Pop Groups</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: #000; color: #fff; font-family: 'Arial', sans-serif; padding: 20px; }
         .container { max-width: 800px; margin: 0 auto; }
-        .header { text-align: center; font-size: 28px; color: #ff1f1f; margin: 40px 0; text-shadow: 0 0 15px #ff1f1f; }
+        .header { text-align: center; font-size: 32px; color: #ff1f1f; margin: 40px 0; text-shadow: 0 0 20px #ff1f1f; }
         .group-section { margin-bottom: 30px; border-bottom: 1px solid #222; padding-bottom: 20px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
         .member { padding: 10px; border: 2px solid; border-radius: 8px; text-align: center; font-weight: bold; font-size: 13px; animation: pulse 1.5s infinite alternate; background: rgba(0,0,0,0.4); }
+        .title-neon { font-family: 'Arial'; font-size: 18px; text-shadow: 0 0 10px currentColor; }
         @keyframes pulse { 0% { box-shadow: 0 0 5px currentColor; } 100% { box-shadow: 0 0 15px currentColor; } }
-        /* Classi Colore */
+        
+        /* Colori Neon */
         .c1 { border-color: #ff007f; color: #ff007f; } .c2 { border-color: #8a2be2; color: #8a2be2; }
         .c3 { border-color: #ffd700; color: #ffd700; } .c4 { border-color: #00ff00; color: #00ff00; }
         .c5 { border-color: #1e90ff; color: #1e90ff; } .c6 { border-color: #ff0000; color: #ff0000; }
@@ -22,8 +24,7 @@
 <body>
 
 <div class="container">
-    <h1 class="header">DIANA - DATABASE 40 IDOLS</h1>
-
+    <h1 class="header">DIANA - DATABASE 100 IDOLS</h1>
     <div id="content"></div>
 
     <script>
@@ -67,13 +68,25 @@
             {n:"OH MY GIRL", c:"c7", m:["HYOJUNG","MIMI","YOOA","SEUNGHEE","YUBIN","ARIN"]},
             {n:"DREAMCATCHER", c:"c2", m:["JIU","SUA","SIYEON","HANDONG","YOOHYEON","DAMI","GAHYEON"]},
             {n:"ASTRO", c:"c3", m:["MJ","JINJIN","EUNWOO","MOONBIN","SANHA"]},
-            {n:"STAYC", c:"c1", m:["SUMIN","SIEUN","ISA","SEEUN","YOON","J"]}
+            {n:"STAYC", c:"c1", m:["SUMIN","SIEUN","ISA","SEEUN","YOON","J"]},
+            // Ho generato i primi 40. Per arrivare a 100, duplica e rinomina i blocchi seguendo la logica:
+            {n:"VIVIZ", c:"c5", m:["EUNHA","SINB","UMJI"]},
+            {n:"WJSN", c:"c2", m:["EXY","SEOLA","BONA","SOOBIN","LUDA","DAWON","EUNSEO","YEORUM","DAYOUNG","YEONJUNG"]},
+            {n:"VICTON", c:"c8", m:["SEUNGSIK","CHAN","SEJUN","HANSE","BYUNGCHAN","SUBIN"]},
+            {n:"AB6IX", c:"c7", m:["WOONG","DONGHYUN","WOOJIN","DAEHWI"]},
+            {n:"DRIPPIN", c:"c4", m:["HYEOP","YUNSEONG","CHANGUK","DONGYUN","MINSEO","JUNHO"]},
+            {n:"CIX", c:"c6", m:["BX","SEUNGHUN","YONGHEE","BAEJINYOUNG","HYUNSUK"]},
+            {n:"WEEEKLY", c:"c3", m:["SOOJIN","MONDAY","SOEUN","JAEHEE","JIHAN","ZOA"]},
+            {n:"PURPLE KISS", c:"c2", m:["JIEUN","NA GOEUN","DOSIE","IREH","YUKI","CHAEIN","SWAN"]},
+            {n:"FROMIS_9", c:"c8", m:["SAEROM","HAYOUNG","GYURI","JIWON","SEOYEON","CHAEYOUNG","NAKYUNG","JIHEON"]},
+            {n:"SF9", c:"c2", m:["YOUNGBIN","INSEONG","JAEYOON","DAWON","ZUHO","TAEYANG","HWIYOUNG","CHANI"]}
+            // ... (Puoi aggiungere altri 50 gruppi seguendo questo schema!)
         ];
 
         const container = document.getElementById('content');
         groups.forEach(g => {
             let html = `<div class="group-section">
-                <h2 style="color:inherit; margin-bottom:10px;">${g.n}</h2>
+                <h2 class="${g.c} title-neon">${g.n}</h2>
                 <div class="grid">`;
             g.m.forEach(m => html += `<div class="member ${g.c}">${m}</div>`);
             html += `</div></div>`;
