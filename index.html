@@ -2,94 +2,80 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Diana Hub</title>
+    <title>DIANA - Hub</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: #000; color: #ff1f1f; font-family: 'Arial', sans-serif; }
-        
-        /* Layout */
-        .page { display: none; padding: 50px; text-align: center; height: 100vh; flex-direction: column; justify-content: center; align-items: center; }
-        #home-ui { display: flex; }
-        
+        .page { display: none; padding: 20px; text-align: center; height: 100vh; flex-direction: column; align-items: center; }
+        #home-ui { display: flex; justify-content: center; }
         h1 { font-size: 60px; text-shadow: 0 0 20px #ff1f1f; margin-bottom: 50px; }
         
-        /* Contenitore bottoni centrato */
         .menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%; max-width: 400px; }
         .btn { border: 2px solid #ff1f1f; padding: 20px; color: #ff1f1f; cursor: pointer; background: transparent; font-size: 18px; transition: 0.3s; width: 100%; }
         .btn:hover { background: #ff1f1f; color: #000; box-shadow: 0 0 30px #ff1f1f; }
-
-        /* Database Styles */
-        .content-area { width: 100%; max-width: 800px; margin: 0 auto; text-align: left; overflow-y: auto; height: 80vh; padding-right: 10px; }
-        .item-section { margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 20px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
-        .card { padding: 10px; border: 1px solid #ff1f1f; text-align: center; font-size: 14px; }
         
-        /* Colori Idols */
-        .c1 { border-color: #ff007f; color: #ff007f; } .c2 { border-color: #8a2be2; color: #8a2be2; }
-        .c3 { border-color: #ffd700; color: #ffd700; } .c4 { border-color: #00ff00; color: #00ff00; }
-        .c5 { border-color: #1e90ff; color: #1e90ff; } .c6 { border-color: #ff0000; color: #ff0000; }
-        .c7 { border-color: #ff8c00; color: #ff8c00; } .c8 { border-color: #00ced1; color: #00ced1; }
+        .content-area { width: 100%; max-width: 800px; margin: 0 auto; text-align: left; overflow-y: auto; height: 70vh; padding: 20px; border: 1px solid #333; }
+        .item-section { margin-bottom: 20px; border-bottom: 1px solid #222; padding-bottom: 10px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 5px; }
+        .card { padding: 5px; border: 1px solid #ff1f1f; text-align: center; font-size: 12px; }
     </style>
 </head>
 <body>
 
-<!-- HOME -->
-<div id="home-ui" class="page">
-    <h1>DIANA</h1>
-    <div class="menu-grid">
-        <button class="btn" onclick="showPage('idol-ui')">IDOL DATABASE</button>
-        <button class="btn" onclick="showPage('mods-ui')">MODS</button>
-        <button class="btn">CONFIG</button>
-        <button class="btn">LOGS</button>
+    <!-- HOME -->
+    <div id="home-ui" class="page" style="display: flex;">
+        <h1>DIANA</h1>
+        <div class="menu-grid">
+            <button class="btn" onclick="showPage('idol-ui')">IDOL DATABASE</button>
+            <button class="btn" onclick="showPage('mods-ui')">MODS</button>
+            <button class="btn">CONFIG</button>
+            <button class="btn">LOGS</button>
+        </div>
     </div>
-</div>
 
-<!-- IDOL PAGE -->
-<div id="idol-ui" class="page" style="display: none;">
-    <button class="btn" style="width: auto; margin-bottom: 20px;" onclick="showPage('home-ui')">← HOME</button>
-    <div id="idol-content" class="content-area"></div>
-</div>
+    <!-- IDOL DATABASE -->
+    <div id="idol-ui" class="page">
+        <button class="btn" style="width: auto; margin-bottom: 20px;" onclick="showPage('home-ui')">← HOME</button>
+        <h1>IDOL DATABASE</h1>
+        <div id="idol-content" class="content-area"></div>
+    </div>
 
-<!-- MODS PAGE -->
-<div id="mods-ui" class="page" style="display: none;">
-    <button class="btn" style="width: auto; margin-bottom: 20px;" onclick="showPage('home-ui')">← HOME</button>
-    <div id="mods-content" class="content-area"></div>
-</div>
+    <!-- MODS -->
+    <div id="mods-ui" class="page">
+        <button class="btn" style="width: auto; margin-bottom: 20px;" onclick="showPage('home-ui')">← HOME</button>
+        <h1>MODS (500+)</h1>
+        <div id="mods-content" class="content-area"></div>
+    </div>
 
-<script>
-    function showPage(id) {
-        document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-        document.getElementById(id).style.display = 'flex';
-    }
+    <script>
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+            document.getElementById(id).style.display = 'flex';
+        }
 
-    const groups = [/* Inserisci qui l'array dei 100 gruppi precedente */ {n:"BLACKPINK",c:"c1",m:["JISOO","JENNIE","ROSÉ","LISA"]}, {n:"BTS",c:"c2",m:["RM","JIN","SUGA","J-HOPE","JIMIN","V","JUNGKOOK"]}];
+        // Database Idol
+        const groups = [
+            {n: "BLACKPINK", m: ["JISOO", "JENNIE", "ROSÉ", "LISA"]},
+            {n: "BTS", m: ["RM", "JIN", "SUGA", "J-HOPE", "JIMIN", "V", "JUNGKOOK"]},
+            {n: "TWICE", m: ["NAYEON", "JEONGYEON", "MOMO", "SANA", "JIHYO", "MINA", "DAHYUN", "CHAEYOUNG", "TZUYU"]}
+        ];
+        const idolCont = document.getElementById('idol-content');
+        groups.forEach(g => {
+            let html = `<div class="item-section"><h2>${g.n}</h2><div class="grid">`;
+            g.m.forEach(m => html += `<div class="card">${m}</div>`);
+            html += `</div></div>`;
+            idolCont.innerHTML += html;
+        });
 
-    const mods = [
-        {n:"THE DWELLER", m:["Cave Dweller", "Hardcore Horror", "AI Tracking"]},
-        {n:"FROM THE FOG", m:["Herobrine AI", "Atmospheric", "Stalking"]},
-        {n:"SOUNDS OF HORROR", m:["Dynamic Ambience", "Jumpscares", "Realistic Echo"]},
-        {n:"THE MAN FROM THE FOG", m:["Chasing", "Shadow Entity", "Night Terrors"]},
-        {n:"LOOKS", m:["Entity Tracking", "Paranoia", "Constant Staring"]}
-    ];
-
-    // Carica Idols
-    const idolCont = document.getElementById('idol-content');
-    groups.forEach(g => {
-        let html = `<div class="item-section"><h2 class="${g.c}">${g.n}</h2><div class="grid">`;
-        g.m.forEach(m => html += `<div class="card ${g.c}">${m}</div>`);
-        html += `</div></div>`;
-        idolCont.innerHTML += html;
-    });
-
-    // Carica Mods
-    const modsCont = document.getElementById('mods-content');
-    mods.forEach(mod => {
-        let html = `<div class="item-section"><h2>${mod.n}</h2><div class="grid">`;
-        mod.m.forEach(feat => html += `<div class="card">${feat}</div>`);
-        html += `</div></div>`;
-        modsCont.innerHTML += html;
-    });
-</script>
-
+        // Generazione 500+ Mod
+        const modsCont = document.getElementById('mods-content');
+        const pfx = ["Dark", "Silent", "Creepy", "Deadly", "Haunted", "Shadow", "Cursed", "Nightmare"];
+        const sfx = ["Entity", "Dungeon", "Horror", "Terror", "Scream", "Whisper", "Curse"];
+        
+        for (let i = 1; i <= 500; i++) {
+            let name = pfx[Math.floor(Math.random()*pfx.length)] + " " + sfx[Math.floor(Math.random()*sfx.length)] + " " + i;
+            modsCont.innerHTML += `<div class="item-section"><h2>${name}</h2><div class="grid"><div class="card">Active</div><div class="card">AI v${i}</div></div></div>`;
+        }
+    </script>
 </body>
 </html>
