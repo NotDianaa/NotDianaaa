@@ -3,80 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <title>Not_Diana</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { 
-            background: radial-gradient(circle at center, #1a0000 0%, #000000 70%); 
-            color:#fff; font-family:'Roboto',sans-serif; overflow-x:hidden; min-height: 100vh;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #000; color: #fff; font-family: 'Arial', sans-serif; padding: 20px; }
+        
+        /* Titolo Principale */
+        .header-logo { text-align: center; font-size: 40px; color: #ff1f1f; margin: 40px 0; text-shadow: 0 0 20px #ff1f1f; }
+        
+        /* Griglia */
+        .container { max-width: 800px; margin: 0 auto; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 50px; }
+        
+        /* Membri Neon */
+        .member { 
+            padding: 15px; border: 2px solid; border-radius: 10px; text-align: center; 
+            font-weight: bold; background: #000; 
+            animation: pulse 1.5s infinite alternate;
         }
-        #bg-video { position:fixed; width:100%; height:100%; object-fit:cover; z-index:-2; opacity:0.3; }
-        #tsparticles { position:fixed; width:100%; height:100%; z-index:-1; }
-        
-        #main-content { display: block; padding: 50px; text-align: center; }
-        .logo { font-family:'Press Start 2P'; color:#ff1f1f; font-size:32px; margin-bottom: 50px; text-shadow: 0 0 20px #ff1f1f; }
-        .btn-kpop { background:#000; border: 2px solid #ff1f1f; padding:15px 30px; border-radius:10px; cursor:pointer; font-family:'Press Start 2P'; color:#ff1f1f; text-decoration:none; box-shadow: 0 0 10px #ff1f1f; transition: 0.3s; }
-        .btn-kpop:hover { background: #ff1f1f; color: #000; box-shadow: 0 0 30px #ff1f1f; }
+        @keyframes pulse { 
+            0% { box-shadow: 0 0 5px currentColor; } 
+            100% { box-shadow: 0 0 20px currentColor; } 
+        }
 
-        #kpop-page { display:none; padding: 40px; }
-        .back-btn { cursor:pointer; color:#ff1f1f; font-family:'Press Start 2P'; margin-bottom:40px; display:block; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 600px; margin: 20px auto 60px auto; }
-        
-        @keyframes neon { 0% { box-shadow: inset 0 0 5px currentColor, 0 0 5px currentColor; } 100% { box-shadow: inset 0 0 15px currentColor, 0 0 20px currentColor; } }
-        .member { padding: 15px; border: 2px solid; border-radius: 10px; text-align: center; font-family: 'Roboto Mono'; font-weight: bold; animation: neon 1.5s infinite alternate; background: rgba(0,0,0,0.6); }
-        .group-title { text-align:center; font-family:'Press Start 2P'; margin:40px 0 20px; font-size:18px; }
-
-        /* COLORI CLASSI */
-        .bp { border-color:#ff007f; color:#ff007f; } .bts { border-color:#8a2be2; color:#8a2be2; }
-        .skz { border-color:#ffd700; color:#ffd700; } .idle { border-color:#1e90ff; color:#1e90ff; }
-        .bm { border-color:#ff0000; color:#ff0000; } .ive { border-color:#00ff00; color:#00ff00; }
-        .nj { border-color:#87ceeb; color:#87ceeb; } .twice { border-color:#ffb347; color:#ffb347; }
-        .en { border-color:#ff4500; color:#ff4500; }
+        /* Colori */
+        .bp { border-color: #ff007f; color: #ff007f; }
+        .bts { border-color: #8a2be2; color: #8a2be2; }
+        .skz { border-color: #ffd700; color: #ffd700; }
+        .idle { border-color: #1e90ff; color: #1e90ff; }
+        .bm { border-color: #ff0000; color: #ff0000; }
+        .ive { border-color: #00ff00; color: #00ff00; }
     </style>
 </head>
 <body>
-    <video id="bg-video" autoplay loop muted><source src="https://motionbgs.com/abstract-dna/video.mp4"></video>
-    <div id="tsparticles"></div>
 
-    <div id="main-content">
-        <div class="logo">DIANA</div>
-        <div class="btn-kpop" onclick="document.getElementById('main-content').style.display='none'; document.getElementById('kpop-page').style.display='block';">K-POP IDOLS</div>
+<div class="container">
+    <h1 class="header-logo">DIANA - IDOLS</h1>
+
+    <!-- BLACKPINK -->
+    <h2 style="color:#ff007f; text-align:center; margin-bottom:10px;">BLACKPINK</h2>
+    <div class="grid">
+        <div class="member bp">JISOO</div><div class="member bp">JENNIE</div>
+        <div class="member bp">ROSÉ</div><div class="member bp">LISA</div>
     </div>
 
-    <div id="kpop-page">
-        <div class="back-btn" onclick="document.getElementById('main-content').style.display='block'; document.getElementById('kpop-page').style.display='none';">← INDIETRO</div>
-        
-        <h2 class="group-title" style="color:#ff007f">BLACKPINK</h2>
-        <div class="grid"><div class="member bp">JISOO</div><div class="member bp">JENNIE</div><div class="member bp">ROSÉ</div><div class="member bp">LISA</div></div>
-
-        <h2 class="group-title" style="color:#8a2be2">BTS</h2>
-        <div class="grid"><div class="member bts">RM</div><div class="member bts">JIN</div><div class="member bts">SUGA</div><div class="member bts">J-HOPE</div><div class="member bts">JIMIN</div><div class="member bts">V</div><div class="member bts">JUNGKOOK</div></div>
-
-        <h2 class="group-title" style="color:#ffd700">STRAY KIDS</h2>
-        <div class="grid"><div class="member skz">BANG CHAN</div><div class="member skz">LEE KNOW</div><div class="member skz">CHANGBIN</div><div class="member skz">HYUNJIN</div><div class="member skz">HAN</div><div class="member skz">FELIX</div><div class="member skz">SEUNGMIN</div><div class="member skz">I.N</div></div>
-
-        <h2 class="group-title" style="color:#1e90ff">(G)I-DLE</h2>
-        <div class="grid"><div class="member idle">SOYEON</div><div class="member idle">MIYEON</div><div class="member idle">MINNIE</div><div class="member idle">YUQI</div><div class="member idle">SHUHUA</div></div>
-
-        <h2 class="group-title" style="color:#ff0000">BABYMONSTER</h2>
-        <div class="grid"><div class="member bm">RUKA</div><div class="member bm">PHARITA</div><div class="member bm">ASA</div><div class="member bm">AHYEON</div><div class="member bm">RAMI</div><div class="member bm">RORA</div><div class="member bm">CHIQUITA</div></div>
-
-        <h2 class="group-title" style="color:#00ff00">IVE</h2>
-        <div class="grid"><div class="member ive">WONYOUNG</div><div class="member ive">YUJIN</div><div class="member ive">GAEUL</div><div class="member ive">LIZ</div><div class="member ive">REI</div><div class="member ive">LEESEO</div></div>
-
-        <h2 class="group-title" style="color:#87ceeb">NEWJEANS</h2>
-        <div class="grid"><div class="member nj">MINJI</div><div class="member nj">HANNI</div><div class="member nj">DANIELLE</div><div class="member nj">HAERIN</div><div class="member nj">HYEIN</div></div>
-
-        <h2 class="group-title" style="color:#ffb347">TWICE</h2>
-        <div class="grid"><div class="member twice">NAYEON</div><div class="member twice">JEONGYEON</div><div class="member twice">MOMO</div><div class="member twice">SANA</div><div class="member twice">JIHYO</div><div class="member twice">MINA</div><div class="member twice">DAHYUN</div><div class="member twice">CHAEYOUNG</div><div class="member twice">TZUYU</div></div>
-
-        <h2 class="group-title" style="color:#ff4500">ENHYPEN</h2>
-        <div class="grid"><div class="member en">JUNGWON</div><div class="member en">HEESEUNG</div><div class="member en">JAY</div><div class="member en">JAKE</div><div class="member en">SUNGHOON</div><div class="member en">SUNOO</div><div class="member en">NI-KI</div></div>
+    <!-- BTS -->
+    <h2 style="color:#8a2be2; text-align:center; margin-bottom:10px;">BTS</h2>
+    <div class="grid">
+        <div class="member bts">RM</div><div class="member bts">JIN</div>
+        <div class="member bts">SUGA</div><div class="member bts">J-HOPE</div>
+        <div class="member bts">JIMIN</div><div class="member bts">V</div>
+        <div class="member bts">JUNGKOOK</div>
     </div>
 
-    <script>
-        tsParticles.load("tsparticles", { particles: { number: { value: 50 }, color: { value: "#ff1f1f" }, move: { enable: true, speed: 0.5 } } });
-    </script>
+    <!-- STRAY KIDS -->
+    <h2 style="color:#ffd700; text-align:center; margin-bottom:10px;">STRAY KIDS</h2>
+    <div class="grid">
+        <div class="member skz">BANG CHAN</div><div class="member skz">LEE KNOW</div>
+        <div class="member skz">CHANGBIN</div><div class="member skz">HYUNJIN</div>
+        <div class="member skz">HAN</div><div class="member skz">FELIX</div>
+        <div class="member skz">SEUNGMIN</div><div class="member skz">I.N</div>
+    </div>
+
+    <!-- (G)I-DLE -->
+    <h2 style="color:#1e90ff; text-align:center; margin-bottom:10px;">(G)I-DLE</h2>
+    <div class="grid">
+        <div class="member idle">SOYEON</div><div class="member idle">MIYEON</div>
+        <div class="member idle">MINNIE</div><div class="member idle">YUQI</div>
+        <div class="member idle">SHUHUA</div>
+    </div>
+
+    <!-- BABYMONSTER -->
+    <h2 style="color:#ff0000; text-align:center; margin-bottom:10px;">BABYMONSTER</h2>
+    <div class="grid">
+        <div class="member bm">RUKA</div><div class="member bm">PHARITA</div>
+        <div class="member bm">ASA</div><div class="member bm">AHYEON</div>
+        <div class="member bm">RAMI</div><div class="member bm">RORA</div>
+        <div class="member bm">CHIQUITA</div>
+    </div>
+
+    <!-- IVE -->
+    <h2 style="color:#00ff00; text-align:center; margin-bottom:10px;">IVE</h2>
+    <div class="grid">
+        <div class="member ive">WONYOUNG</div><div class="member ive">YUJIN</div>
+        <div class="member ive">GAEUL</div><div class="member ive">LIZ</div>
+        <div class="member ive">REI</div><div class="member ive">LEESEO</div>
+    </div>
+</div>
+
 </body>
 </html>
