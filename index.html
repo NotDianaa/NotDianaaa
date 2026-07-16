@@ -2,7 +2,8 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>Not_Diana - K-Pop Database</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Not_Diana</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
 
@@ -10,102 +11,100 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body { font-family:'Roboto',sans-serif; background:#000; color:#fff; overflow-x:hidden; }
     
-    /* Layout Home */
-    #main-app { display:block; }
-    header { padding:40px; text-align:center; }
-    .logo { font-family:'Press Start 2P'; color:#ff1f1f; font-size:32px; text-shadow:0 0 20px red; }
-    
-    .card-container { display:flex; justify-content:center; padding:50px; }
-    .btn-kpop { background:#22c55e; padding:15px 30px; border-radius:10px; color:#000; font-weight:bold; cursor:pointer; text-decoration:none; }
+    /* SFONDO */
+    #bg-video { position:fixed; width:100%; height:100%; object-fit:cover; z-index:-2; opacity:0.5; }
+    #tsparticles { position:fixed; width:100%; height:100%; z-index:-1; }
 
-    /* Pagina Nomi */
-    #kpop-page { display:none; background:#000; min-height:100vh; padding:20px; }
-    #back-btn { position:fixed; top:20px; left:20px; background:#ff1f1f; padding:10px; cursor:pointer; font-family:'Press Start 2P'; font-size:10px; z-index:100; }
+    /* LAYOUT HOME */
+    #main-app { display: block; }
+    header { padding:40px; text-align:center; background:rgba(0,0,0,0.6); }
+    .logo { font-family:'Press Start 2P'; color:#ff1f1f; font-size:32px; text-shadow:0 0 15px red; }
+    .hero { padding:100px 20px; text-align:center; }
+    .hero h1 { font-family:'Press Start 2P'; font-size:35px; color:#ff1f1f; }
     
-    .group-wrap { margin-bottom: 80px; text-align:center; }
-    .sticky-title { position:sticky; top:60px; font-family:'Press Start 2P'; font-size:30px; padding:20px; background:rgba(0,0,0,0.8); z-index:50; }
-    .members-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:20px; padding:20px; }
-    .member-name { font-family:'Roboto Mono'; font-weight:bold; font-size:18px; padding:10px; border:1px solid #333; border-radius:8px; }
+    .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; padding:40px; }
+    .card { background:rgba(0,0,0,0.8); border:1px solid #330000; padding:20px; border-radius:15px; text-align:center; transition:0.3s; }
+    .card:hover { transform:scale(1.05); border-color:#ff1f1f; }
+    .card a { display:block; margin-top:10px; padding:10px; background:#ff1f1f; color:#000; text-decoration:none; font-weight:bold; border-radius:5px; cursor:pointer; }
+    
+    /* PAGINA IDOL */
+    #kpop-page { display:none; background:#000; padding:40px; }
+    .back-btn { position:fixed; top:20px; left:20px; background:#ff1f1f; padding:10px; cursor:pointer; font-family:'Press Start 2P'; z-index:100; }
+    .group-wrap { margin-bottom: 60px; text-align:center; }
+    .sticky-title { font-family:'Press Start 2P'; font-size:28px; margin-bottom:20px; text-shadow:0 0 10px currentColor; }
+    .members-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:15px; }
+    .member-name { padding:10px; border:1px solid; border-radius:8px; font-family:'Roboto Mono'; font-weight:bold; }
 </style>
 </head>
 
 <body>
-
 <div id="main-app">
-    <header><div class="logo">DIANA K-POP</div></header>
-    <div class="card-container">
-        <a class="btn-kpop" onclick="document.getElementById('main-app').style.display='none'; document.getElementById('kpop-page').style.display='block';">ACCEDI AL DATABASE IDOL</a>
-    </div>
+    <video id="bg-video" autoplay loop muted><source src="https://motionbgs.com/abstract-dna/video.mp4"></video>
+    <div id="tsparticles"></div>
+
+    <header><div class="logo">DIANA</div></header>
+
+    <section class="hero"><h1>Diana – Dark Dev</h1></section>
+
+    <section class="projects">
+        <div class="card"><h3>Prominence</h3><a href="https://rpg.prominence.wiki/hasturian-era" target="_blank">Wiki</a></div>
+        <div class="card"><h3>K-Pop Idols</h3><a onclick="document.getElementById('main-app').style.display='none'; document.getElementById('kpop-page').style.display='block';">Visualizza</a></div>
+        <div class="card"><h3>Discord</h3><a href="https://discord.com/users/not_diana__" target="_blank">Apri</a></div>
+        <div class="card"><h3>RedTiger</h3><a href="https://github.com/NotDianaa/RedTiger">Apri</a></div>
+        <div class="card"><h3>The Broken Script</h3><a href="#">Trailer</a></div>
+    </section>
 </div>
 
+<!-- PAGINA IDOLS -->
 <div id="kpop-page">
-    <div id="back-btn" onclick="document.getElementById('kpop-page').style.display='none'; document.getElementById('main-app').style.display='block';">← HOME</div>
+    <div class="back-btn" onclick="document.getElementById('kpop-page').style.display='none'; document.getElementById('main-app').style.display='block';">← HOME</div>
 
-    <!-- BLACKPINK -->
-    <div class="group-wrap"><h2 class="sticky-title" style="color:#ff69b4;">BLACKPINK</h2>
+    <!-- Gruppi -->
+    <div class="group-wrap"><h2 style="color:#ff007f" class="sticky-title">BLACKPINK</h2>
         <div class="members-grid">
-            <div class="member-name" style="color:#ffb6c1; border-color:#ffb6c1">JISOO</div>
-            <div class="member-name" style="color:#ff69b4; border-color:#ff69b4">JENNIE</div>
-            <div class="member-name" style="color:#ff85c1; border-color:#ff85c1">ROSÉ</div>
-            <div class="member-name" style="color:#ff00ff; border-color:#ff00ff">LISA</div>
+            <div class="member-name" style="color:#ffb6c1; border-color:#ffb6c1">JISOO</div><div class="member-name" style="color:#ff69b4; border-color:#ff69b4">JENNIE</div><div class="member-name" style="color:#ff85c1; border-color:#ff85c1">ROSÉ</div><div class="member-name" style="color:#ff00ff; border-color:#ff00ff">LISA</div>
         </div>
     </div>
 
-    <!-- BTS -->
-    <div class="group-wrap"><h2 class="sticky-title" style="color:#9b59b6;">BTS</h2>
+    <div class="group-wrap"><h2 style="color:#a020f0" class="sticky-title">BTS</h2>
         <div class="members-grid">
-            <div class="member-name" style="color:#a29bfe; border-color:#a29bfe">RM</div>
-            <div class="member-name" style="color:#8e44ad; border-color:#8e44ad">JIN</div>
-            <div class="member-name" style="color:#6c5ce7; border-color:#6c5ce7">SUGA</div>
-            <div class="member-name" style="color:#a29bfe; border-color:#a29bfe">J-HOPE</div>
-            <div class="member-name" style="color:#fd79a8; border-color:#fd79a8">JIMIN</div>
-            <div class="member-name" style="color:#6c5ce7; border-color:#6c5ce7">V</div>
-            <div class="member-name" style="color:#a29bfe; border-color:#a29bfe">JUNGKOOK</div>
+            <div class="member-name" style="color:#a29bfe; border-color:#a29bfe">RM</div><div class="member-name" style="color:#ba55d3; border-color:#ba55d3">JIN</div><div class="member-name" style="color:#8a2be2; border-color:#8a2be2">SUGA</div><div class="member-name" style="color:#9932cc; border-color:#9932cc">J-HOPE</div><div class="member-name" style="color:#800080; border-color:#800080">JIMIN</div><div class="member-name" style="color:#4b0082; border-color:#4b0082">V</div><div class="member-name" style="color:#dda0dd; border-color:#dda0dd">JUNGKOOK</div>
         </div>
     </div>
 
-    <!-- NEWJEANS -->
-    <div class="group-wrap"><h2 class="sticky-title" style="color:#3498db;">NEWJEANS</h2>
+    <div class="group-wrap"><h2 style="color:#ffc0cb" class="sticky-title">TWICE</h2>
         <div class="members-grid">
-            <div class="member-name" style="color:#74b9ff; border-color:#74b9ff">MINJI</div>
-            <div class="member-name" style="color:#a29bfe; border-color:#a29bfe">HANNI</div>
-            <div class="member-name" style="color:#81ecec; border-color:#81ecec">DANIELLE</div>
-            <div class="member-name" style="color:#fab1a0; border-color:#fab1a0">HAERIN</div>
-            <div class="member-name" style="color:#ffeaa7; border-color:#ffeaa7">HYEIN</div>
+            <div class="member-name" style="color:#ffb6c1; border-color:#ffb6c1">NAYEON</div><div class="member-name" style="color:#dda0dd; border-color:#dda0dd">JEONGYEON</div><div class="member-name" style="color:#ff69b4; border-color:#ff69b4">MOMO</div><div class="member-name" style="color:#add8e6; border-color:#add8e6">SANA</div><div class="member-name" style="color:#87cefa; border-color:#87cefa">JIHYO</div><div class="member-name" style="color:#ffc0cb; border-color:#ffc0cb">MINA</div><div class="member-name" style="color:#ff8c00; border-color:#ff8c00">DAHYUN</div><div class="member-name" style="color:#ff1493; border-color:#ff1493">CHAEYOUNG</div><div class="member-name" style="color:#87ceeb; border-color:#87ceeb">TZUYU</div>
         </div>
     </div>
 
-    <!-- IVE -->
-    <div class="group-wrap"><h2 class="sticky-title" style="color:#f1c40f;">IVE</h2>
+    <div class="group-wrap"><h2 style="color:#ff4500" class="sticky-title">STRAY KIDS</h2>
         <div class="members-grid">
-            <div class="member-name" style="color:#f1c40f; border-color:#f1c40f">WONYOUNG</div>
-            <div class="member-name" style="color:#e67e22; border-color:#e67e22">YUJIN</div>
-            <div class="member-name" style="color:#f39c12; border-color:#f39c12">GAEUL</div>
-            <div class="member-name" style="color:#f1c40f; border-color:#f1c40f">LIZ</div>
-            <div class="member-name" style="color:#e67e22; border-color:#e67e22">REI</div>
-            <div class="member-name" style="color:#f39c12; border-color:#f39c12">LEESEO</div>
+            <div class="member-name" style="color:#ff4500; border-color:#ff4500">BANG CHAN</div><div class="member-name" style="color:#ff6347; border-color:#ff6347">LEE KNOW</div><div class="member-name" style="color:#ff8c00; border-color:#ff8c00">CHANGBIN</div><div class="member-name" style="color:#ff7f50; border-color:#ff7f50">HYUNJIN</div><div class="member-name" style="color:#ff4500; border-color:#ff4500">HAN</div><div class="member-name" style="color:#ff6347; border-color:#ff6347">FELIX</div><div class="member-name" style="color:#ff8c00; border-color:#ff8c00">SEUNGMIN</div><div class="member-name" style="color:#ff7f50; border-color:#ff7f50">I.N</div>
         </div>
     </div>
 
-    <!-- (G)I-DLE -->
-    <div class="group-wrap"><h2 class="sticky-title" style="color:#e84393;">(G)I-DLE</h2>
+    <div class="group-wrap"><h2 style="color:#8a2be2" class="sticky-title">(G)I-DLE</h2>
         <div class="members-grid">
-            <div class="member-name" style="color:#ff7675; border-color:#ff7675">SOYEON</div>
-            <div class="member-name" style="color:#fab1a0; border-color:#fab1a0">MIYEON</div>
-            <div class="member-name" style="color:#fd79a8; border-color:#fd79a8">MINNIE</div>
-            <div class="member-name" style="color:#ff9ff3; border-color:#ff9ff3">YUQI</div>
-            <div class="member-name" style="color:#feca57; border-color:#feca57">SHUHUA</div>
+            <div class="member-name" style="color:#ff7675; border-color:#ff7675">SOYEON</div><div class="member-name" style="color:#fab1a0; border-color:#fab1a0">MIYEON</div><div class="member-name" style="color:#fd79a8; border-color:#fd79a8">MINNIE</div><div class="member-name" style="color:#ff9ff3; border-color:#ff9ff3">YUQI</div><div class="member-name" style="color:#feca57; border-color:#feca57">SHUHUA</div>
+        </div>
+    </div>
+
+    <div class="group-wrap"><h2 style="color:#3498db" class="sticky-title">NEWJEANS</h2>
+        <div class="members-grid">
+            <div class="member-name" style="color:#74b9ff; border-color:#74b9ff">MINJI</div><div class="member-name" style="color:#a29bfe; border-color:#a29bfe">HANNI</div><div class="member-name" style="color:#81ecec; border-color:#81ecec">DANIELLE</div><div class="member-name" style="color:#fab1a0; border-color:#fab1a0">HAERIN</div><div class="member-name" style="color:#ffeaa7; border-color:#ffeaa7">HYEIN</div>
+        </div>
+    </div>
+    
+    <div class="group-wrap"><h2 style="color:#f1c40f" class="sticky-title">IVE</h2>
+        <div class="members-grid">
+            <div class="member-name" style="color:#f1c40f; border-color:#f1c40f">WONYOUNG</div><div class="member-name" style="color:#e67e22; border-color:#e67e22">YUJIN</div><div class="member-name" style="color:#f39c12; border-color:#f39c12">GAEUL</div><div class="member-name" style="color:#f1c40f; border-color:#f1c40f">LIZ</div><div class="member-name" style="color:#e67e22; border-color:#e67e22">REI</div><div class="member-name" style="color:#f39c12; border-color:#f39c12">LEESEO</div>
         </div>
     </div>
 </div>
 
 <script>
-    // Particelle di sfondo
-    tsParticles.load("tsparticles", {
-        particles: { number: { value: 50 }, color: { value: "#ffffff" }, move: { enable: true, speed: 0.5 } }
-    });
+    tsParticles.load("tsparticles", { particles: { number: { value: 60 }, color: { value: "#ff1f1f" }, move: { enable: true, speed: 0.5 } } });
 </script>
-<div id="tsparticles"></div>
-
 </body>
 </html>
