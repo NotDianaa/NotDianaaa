@@ -1,54 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Not_Diana</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+
 <style>
-    /* Animazione Neon Multicolore */
-    @keyframes neon-flicker {
-        0%, 100% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #f0f, 0 0 40px #f0f; border-color: #f0f; }
-        50% { text-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 10px #0ff, 0 0 20px #0ff; border-color: #0ff; }
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Roboto',sans-serif; background:#000; color:#fff; overflow-x:hidden; }
     
-    .neon-member {
-        padding: 15px;
-        border: 2px solid;
-        border-radius: 10px;
-        text-align: center;
-        font-family: 'Roboto Mono', monospace;
-        font-weight: bold;
-        animation: neon-flicker 2s infinite alternate;
-        margin: 10px;
-    }
+    /* SFONDO E PARTICELLE */
+    #bg-video { position:fixed; width:100%; height:100%; object-fit:cover; z-index:-2; opacity:0.5; }
+    #tsparticles { position:fixed; width:100%; height:100%; z-index:-1; }
 
-    /* Griglia a due colonne */
-    .members-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Due colonne */
-        gap: 20px;
-        padding: 20px;
-        max-width: 800px;
-        margin: 0 auto;
-    }
+    /* LAYOUT HOME */
+    #main-app { display: block; }
+    header { padding:40px; text-align:center; background:rgba(0,0,0,0.6); }
+    .logo { font-family:'Press Start 2P'; color:#ff1f1f; font-size:32px; text-shadow:0 0 15px red; }
+    .hero { padding:80px 20px; text-align:center; }
+    .hero h1 { font-family:'Press Start 2P'; font-size:30px; color:#ff1f1f; }
+    .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; padding:40px; }
+    .card { background:rgba(0,0,0,0.8); border:1px solid #330000; padding:20px; border-radius:15px; text-align:center; }
+    .card a { display:block; margin-top:10px; padding:10px; background:#ff1f1f; color:#000; text-decoration:none; font-weight:bold; border-radius:5px; cursor:pointer; }
+
+    /* PAGINA IDOL */
+    #kpop-page { display:none; background:#000; padding:40px; min-height:100vh; }
+    .back-btn { position:fixed; top:20px; left:20px; background:#ff1f1f; padding:10px; cursor:pointer; font-family:'Press Start 2P'; z-index:100; }
+    .group-wrap { margin-bottom: 60px; text-align:center; }
+    .sticky-title { font-family:'Press Start 2P'; font-size:24px; margin-bottom:30px; }
+    
+    /* GRIGLIA E NEON */
+    .members-grid { display:grid; grid-template-columns:1fr 1fr; gap:15px; max-width:600px; margin:0 auto; }
+    @keyframes neon-pulse { 0% { filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 5px currentColor); } 100% { filter:drop-shadow(0 0 5px #fff) drop-shadow(0 0 15px currentColor); } }
+    .neon-member { padding:15px; border:2px solid; border-radius:10px; font-family:'Roboto Mono'; font-weight:bold; animation:neon-pulse 1.5s infinite alternate; background:#000; }
+
+    /* COLORI GRUPPI */
+    .bp { border-color: #ff007f; color: #ff007f; }
+    .bts { border-color: #8a2be2; color: #8a2be2; }
+    .skz { border-color: #ffd700; color: #1e90ff; }
+    .bm { border-color: #8b0000; color: #ff0000; }
 </style>
+</head>
 
-<!-- Esempio di come implementare i gruppi (ripeti per ogni gruppo) -->
-<div class="group-wrap">
-    <h2 style="color:#ff007f" class="sticky-title">BLACKPINK</h2>
-    <div class="members-grid">
-        <div class="neon-member" style="color:#ff69b4">JISOO</div>
-        <div class="neon-member" style="color:#ff1493">JENNIE</div>
-        <div class="neon-member" style="color:#ffb6c1">ROSÉ</div>
-        <div class="neon-member" style="color:#ff00ff">LISA</div>
+<body>
+<div id="main-app">
+    <video id="bg-video" autoplay loop muted><source src="https://motionbgs.com/abstract-dna/video.mp4"></video>
+    <div id="tsparticles"></div>
+    <header><div class="logo">DIANA</div></header>
+    <section class="hero"><h1>Diana – Dark Dev</h1></section>
+    <section class="projects">
+        <div class="card"><h3>Prominence</h3><a href="https://rpg.prominence.wiki/hasturian-era" target="_blank">Wiki</a></div>
+        <div class="card"><h3>K-Pop Idols</h3><a onclick="document.getElementById('main-app').style.display='none'; document.getElementById('kpop-page').style.display='block';">Visualizza</a></div>
+        <div class="card"><h3>Discord</h3><a href="https://discord.com/users/not_diana__" target="_blank">Apri</a></div>
+        <div class="card"><h3>RedTiger</h3><a href="https://github.com/NotDianaa/RedTiger">Apri</a></div>
+    </section>
+</div>
+
+<div id="kpop-page">
+    <div class="back-btn" onclick="document.getElementById('kpop-page').style.display='none'; document.getElementById('main-app').style.display='block';">← HOME</div>
+    
+    <div class="group-wrap"><h2 class="sticky-title" style="color:#ff007f">BLACKPINK</h2>
+        <div class="members-grid">
+            <div class="neon-member bp">JISOO</div><div class="neon-member bp">JENNIE</div><div class="neon-member bp">ROSÉ</div><div class="neon-member bp">LISA</div>
+        </div>
+    </div>
+
+    <div class="group-wrap"><h2 class="sticky-title" style="color:#8a2be2">BTS</h2>
+        <div class="members-grid">
+            <div class="neon-member bts">RM</div><div class="neon-member bts">JIN</div><div class="neon-member bts">SUGA</div><div class="neon-member bts">J-HOPE</div><div class="neon-member bts">JIMIN</div><div class="neon-member bts">V</div><div class="neon-member bts">JUNGKOOK</div>
+        </div>
+    </div>
+
+    <div class="group-wrap"><h2 class="sticky-title" style="color:#ffd700">STRAY KIDS</h2>
+        <div class="members-grid">
+            <div class="neon-member skz">BANG CHAN</div><div class="neon-member skz">LEE KNOW</div><div class="neon-member skz">CHANGBIN</div><div class="neon-member skz">HYUNJIN</div><div class="neon-member skz">HAN</div><div class="neon-member skz">FELIX</div><div class="neon-member skz">SEUNGMIN</div><div class="neon-member skz">I.N</div>
+        </div>
+    </div>
+
+    <div class="group-wrap"><h2 class="sticky-title" style="color:#8b0000">BABYMONSTER</h2>
+        <div class="members-grid">
+            <div class="neon-member bm">RUKA</div><div class="neon-member bm">PHARITA</div><div class="neon-member bm">ASA</div><div class="neon-member bm">AHYEON</div><div class="neon-member bm">RAMI</div><div class="neon-member bm">RORA</div><div class="neon-member bm">CHIQUITA</div>
+        </div>
     </div>
 </div>
 
-<div class="group-wrap">
-    <h2 style="color:#a020f0" class="sticky-title">BTS</h2>
-    <div class="members-grid">
-        <div class="neon-member" style="color:#9370db">RM</div>
-        <div class="neon-member" style="color:#ba55d3">JIN</div>
-        <div class="neon-member" style="color:#8a2be2">SUGA</div>
-        <div class="neon-member" style="color:#9932cc">J-HOPE</div>
-        <div class="neon-member" style="color:#800080">JIMIN</div>
-        <div class="neon-member" style="color:#4b0082">V</div>
-        <div class="neon-member" style="color:#dda0dd">JUNGKOOK</div>
-    </div>
-</div>
-
-<!-- Aggiungi gli altri gruppi nello stesso formato -->
+<script>
+    tsParticles.load("tsparticles", { particles: { number: { value: 50 }, color: { value: "#ffffff" }, move: { enable: true, speed: 0.5 } } });
+</script>
+</body>
+</html>
