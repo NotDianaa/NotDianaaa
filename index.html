@@ -2,12 +2,12 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>DIANA - DATABASE 100 IDOL</title>
+    <title>DIANA - DATABASE 100 GRUPPI</title>
     <style>
         body{background:#000;color:#fff;font-family:Arial;padding:20px}
-        .gs{margin-bottom:10px;border-bottom:1px solid #222;padding-bottom:5px}
+        .g{margin-bottom:12px;border-bottom:1px solid #222;padding-bottom:5px}
         .grid{display:flex;flex-wrap:wrap;gap:4px}
-        .m{padding:3px 6px;border:1px solid;border-radius:3px;text-decoration:none;font-size:9px;color:inherit}
+        .m{padding:2px 6px;border:1px solid;border-radius:3px;text-decoration:none;font-size:9px;color:inherit}
         .m:hover{background:#fff;color:#000}
         .c1{border-color:#ff007f;color:#ff007f}.c2{border-color:#8a2be2;color:#8a2be2}.c3{border-color:#ffd700;color:#ffd700}.c4{border-color:#00ff00;color:#00ff00}.c5{border-color:#1e90ff;color:#1e90ff}.c6{border-color:#ff0000;color:#ff0000}.c7{border-color:#ff8c00;color:#ff8c00}.c8{border-color:#00ced1;color:#00ced1}
     </style>
@@ -16,29 +16,28 @@
 <div id="app"></div>
 <script>
     const db = [
+        {n:"BABYMONSTER",c:"c6",m:[{name:"RUKA",ig:"ruka.babymonster"},{name:"PHARITA",ig:"pharita.babymonster"},{name:"ASA",ig:"asa.babymonster"},{name:"AHYEON",ig:"ahyeon.babymonster"},{name:"RAMI",ig:"rami.babymonster"},{name:"RORA",ig:"rora.babymonster"},{name:"CHIQUITA",ig:"chiquita.babymonster"}]},
         {n:"BLACKPINK",c:"c1",m:[{name:"JISOO",ig:"sooyaaa__"},{name:"JENNIE",ig:"jennierubyjane"},{name:"ROSÉ",ig:"roses_are_rosie"},{name:"LISA",ig:"lalalalisa_m"}]},
         {n:"BTS",c:"c2",m:[{name:"RM",ig:"rkive"},{name:"JIN",ig:"jin"},{name:"SUGA",ig:"agustd"},{name:"JHOPE",ig:"uarmyhope"},{name:"JIMIN",ig:"j.m"},{name:"V",ig:"thv"},{name:"JK",ig:"jungkook.97"}]},
         {n:"STRAY KIDS",c:"c3",m:[{name:"CHAN",ig:"gnabnahcgnab"},{name:"LK",ig:"t.leeknow"},{name:"CB",ig:"jutdwi"},{name:"HJ",ig:"hynjinn"},{name:"HAN",ig:"han"},{name:"FELIX",ig:"yong.lixx"},{name:"SM",ig:"miniverse.___"},{name:"IN",ig:"i.2.n.8"}]},
-        {n:"IVE",c:"c4",m:[{name:"WY",ig:"for_everyoung10"},{name:"YJ",ig:"_yujin_an"},{name:"GAEUL",ig:"fallininlove"},{name:"LIZ",ig:"liz"},{name:"REI",ig:"reinyourheart"},{name:"LS",ig:"eeseo"}]},
         {n:"(G)I-DLE",c:"c5",m:[{name:"SOYEON",ig:"tiny.pretty.j"},{name:"MIYEON",ig:"noodle.zip"},{name:"MINNIE",ig:"min.nicha"},{name:"YUQI",ig:"yuqisong.923"},{name:"SHUHUA",ig:"yeh.shaa_"}]},
-        {n:"BABYMONSTER",c:"c6",m:[{name:"RUKA",ig:"babymonster_ygofficial"},{name:"PHARITA",ig:"babymonster_ygofficial"},{name:"ASA",ig:"babymonster_ygofficial"},{name:"AHYEON",ig:"babymonster_ygofficial"},{name:"RAMI",ig:"babymonster_ygofficial"},{name:"RORA",ig:"babymonster_ygofficial"},{name:"CHIQUITA",ig:"babymonster_ygofficial"}]},
-        {n:"NEWJEANS",c:"c8",m:[{name:"MINJI",ig:"minji"},{name:"HANNI",ig:"hanni"},{name:"DANIELLE",ig:"danielle"},{name:"HAERIN",ig:"haerin"},{name:"HYEIN",ig:"hyein"}]},
-        {n:"TWICE",c:"c1",m:[{name:"NY",ig:"nayeonyny"},{name:"JY",ig:"jy_piece"},{name:"MOMO",ig:"momo"},{name:"SANA",ig:"m.by__sana"},{name:"JH",ig:"_zyozyo"},{name:"MINA",ig:"mina_sr_my"},{name:"DH",ig:"dahhyunnee"},{name:"CY",ig:"chaeyo.0"},{name:"TZUYU",ig:"thinkaboutzu"}]},
-        {n:"ENHYPEN",c:"c7",m:[{name:"JW",ig:"jungwon"},{name:"HS",ig:"heeseung"},{name:"JAY",ig:"jay"},{name:"JAKE",ig:"jake"},{name:"SH",ig:"sunghoon"},{name:"SN",ig:"sunoo"},{name:"NIKI",ig:"ni_ki"}]},
-        {n:"AESPA",c:"c5",m:[{name:"KARINA",ig:"katarinabluu"},{name:"GISELLE",ig:"aerichan"},{name:"WINTER",ig:"imwinter"},{name:"NINGNING",ig:"imningningi"}]},
+        {n:"TWICE",c:"c1",m:[{name:"NAYEON",ig:"nayeonyny"},{name:"JEONGYEON",ig:"jy_piece"},{name:"MOMO",ig:"momo"},{name:"SANA",ig:"m.by__sana"},{name:"JIHYO",ig:"_zyozyo"},{name:"MINA",ig:"mina_sr_my"},{name:"DAHYUN",ig:"dahhyunnee"},{name:"CHAEYOUNG",ig:"chaeyo.0"},{name:"TZUYU",ig:"thinkaboutzu"}]},
         {n:"SEVENTEEN",c:"c3",m:[{name:"SCOUPS",ig:"sound_of_coups"},{name:"MINGYU",ig:"min9yu_k"},{name:"HOSHI",ig:"ho5hi_kwon"},{name:"WOOZI",ig:"woozi_universefactory"},{name:"DK",ig:"dk_is_dokyeom"}]},
-        {n:"TXT",c:"c2",m:[{name:"SOOBIN",ig:"page.soobin"},{name:"YEONJUN",ig:"yawnzzn"},{name:"BEOMGYU",ig:"bamgyuuuu"}]},
-        {n:"ATEEZ",c:"c6",m:[{name:"HONGJOONG",ig:"no1makes1"},{name:"SAN",ig:"choi_san"},{name:"MINGI",ig:"fixon_mingi"}]},
-        {n:"ITZY",c:"c8",m:[{name:"YEJI",ig:"yeji"},{name:"RYUJIN",ig:"ryujin"},{name:"YUNA",ig:"yuna"}]},
-        {n:"RED VELVET",c:"c1",m:[{name:"IRENE",ig:"renebaebae"},{name:"SEULGI",ig:"hi_sseulgi"},{name:"JOY",ig:"_imyour_joy"}]},
         {n:"LE SSERAFIM",c:"c2",m:[{name:"SAKURA",ig:"39saku_chan"},{name:"CHAEWON",ig:"_chaechae_1"},{name:"YUNJIN",ig:"jenaissante"},{name:"KAZUHA",ig:"k_a_z_u_h_a__"},{name:"EUNCHAE",ig:"hhh.e_c.v"}]},
-        {n:"NCT127",c:"c4",m:[{name:"TAEYONG",ig:"taeoxo_nct"},{name:"JAEHYUN",ig:"_jeongjaehyun"}]},
-        {n:"EXO",c:"c5",m:[{name:"BAEK",ig:"baekhyunee_exo"},{name:"CHAN",ig:"real__pcy"}]},
+        {n:"AESPA",c:"c5",m:[{name:"KARINA",ig:"katarinabluu"},{name:"GISELLE",ig:"aerichan"},{name:"WINTER",ig:"imwinter"},{name:"NINGNING",ig:"imningningi"}]},
+        {n:"NEWJEANS",c:"c8",m:[{name:"MINJI",ig:"minji"},{name:"HANNI",ig:"hanni"},{name:"DANIELLE",ig:"danielle"},{name:"HAERIN",ig:"haerin"},{name:"HYEIN",ig:"hyein"}]},
+        {n:"IVE",c:"c4",m:[{name:"WONYOUNG",ig:"for_everyoung10"},{name:"YUJIN",ig:"_yujin_an"},{name:"GAEUL",ig:"fallininlove"},{name:"LIZ",ig:"liz"},{name:"REI",ig:"reinyourheart"},{name:"LEESEO",ig:"eeseo"}]},
+        {n:"TXT",c:"c2",m:[{name:"SOOBIN",ig:"page.soobin"},{name:"YEONJUN",ig:"yawnzzn"},{name:"BEOMGYU",ig:"bamgyuuuu"},{name:"TAEHYUN",ig:"taehyun_v"},{name:"HUENINGKAI",ig:"hueningkai"}]},
+        {n:"ATEEZ",c:"c6",m:[{name:"HONGJOONG",ig:"no1makes1"},{name:"SAN",ig:"choi_san"},{name:"MINGI",ig:"fixon_mingi"}]},
+        {n:"ITZY",c:"c8",m:[{name:"YEJI",ig:"yeji"},{name:"LIA",ig:"lia"},{name:"RYUJIN",ig:"ryujin"},{name:"CHAERYEONG",ig:"chaeryeong"},{name:"YUNA",ig:"yuna"}]},
+        {n:"RED VELVET",c:"c1",m:[{name:"IRENE",ig:"renebaebae"},{name:"SEULGI",ig:"hi_sseulgi"},{name:"JOY",ig:"_imyour_joy"}]},
+        {n:"ENHYPEN",c:"c7",m:[{name:"JUNGWON",ig:"jungwon"},{name:"HEESEUNG",ig:"heeseung"},{name:"JAKE",ig:"jake"}]},
+        {n:"EXO",c:"c5",m:[{name:"BAEKHYUN",ig:"baekhyunee_exo"},{name:"CHANYEOL",ig:"real__pcy"}]},
         {n:"MAMAMOO",c:"c7",m:[{name:"SOLAR",ig:"solarkeem"},{name:"HWASA",ig:"_mariahwasa"}]},
         {n:"NMIXX",c:"c5",m:[{name:"LILY",ig:"nmixx_official"},{name:"HAEWON",ig:"nmixx_official"}]},
         {n:"ZB1",c:"c8",m:[{name:"HANBIN",ig:"zb1_official"},{name:"HAO",ig:"zb1_official"}]},
-        {n:"BND",c:"c6",m:[{name:"SUNGHO",ig:"boynextdoor_official"}]},
-        {n:"RIIZE",c:"c3",m:[{name:"WONBIN",ig:"riize_official"},{name:"ANTON",ig:"riize_official"}]},
+        {n:"TREASURE",c:"c3",m:[{name:"HYUNSUK",ig:"hyunsuk"},{name:"JIHOON",ig:"jihoon"}]},
+        {n:"RIIZE",c:"c4",m:[{name:"WONBIN",ig:"riize_official"},{name:"ANTON",ig:"riize_official"}]},
         {n:"GOT7",c:"c2",m:[{name:"JACKSON",ig:"jacksonwang852g7"},{name:"BAMBAM",ig:"bambam1a"}]},
         {n:"MONSTA X",c:"c6",m:[{name:"SHOWNU",ig:"shownuayo"},{name:"IM",ig:"imnameim"}]},
         {n:"P1H",c:"c5",m:[{name:"KEEHO",ig:"p1h_official"}]},
@@ -65,8 +64,8 @@
         {n:"PURPLE KISS",c:"c2",m:[{name:"SWAN",ig:"purplekiss_official"}]},
         {n:"FROMIS_9",c:"c8",m:[{name:"JIWON",ig:"fromis_9_official"}]},
         {n:"SF9",c:"c2",m:[{name:"CHANI",ig:"sf9_official"}]},
+        {n:"NCT127",c:"c4",m:[{name:"TAEYONG",ig:"taeoxo_nct"},{name:"JAEHYUN",ig:"_jeongjaehyun"}]},
         {n:"NCT DREAM",c:"c4",m:[{name:"MARK",ig:"onyourm__ark"},{name:"JENO",ig:"nct_dream"}]},
-        {n:"NCT WISH",c:"c4",m:[{name:"SION",ig:"nctwish_official"}]},
         {n:"WAYV",c:"c4",m:[{name:"TEN",ig:"tenlee_1001"}]},
         {n:"PENTAGON",c:"c6",m:[{name:"KINO",ig:"88.01.27"}]},
         {n:"BTOB",c:"c5",m:[{name:"SUNGJAE",ig:"yook_can_do_it"}]},
@@ -106,17 +105,16 @@
         {n:"8TURN",c:"c4",m:[{name:"MYUNGHO",ig:"8turn_official"}]},
         {n:"XIKERS",c:"c2",m:[{name:"MINJAE",ig:"xikers_official"}]},
         {n:"QWER",c:"c5",m:[{name:"CHODAN",ig:"qwer_official"}]},
-        {n:"BABY BLUE",c:"c6",m:[{name:"SARA",ig:"babyblue_official"}]},
         {n:"UNIS",c:"c7",m:[{name:"NANA",ig:"unis_official"}]},
         {n:"IZNA",c:"c1",m:[{name:"MAI",ig:"izna_official"}]},
         {n:"YOUNG POSSE",c:"c3",m:[{name:"JIANA",ig:"youngposse_official"}]},
         {n:"ME:I",c:"c4",m:[{name:"MOMONA",ig:"me_i_official"}]}
     ];
-    const a = document.getElementById('app');
+    const app = document.getElementById('app');
     db.forEach(g => {
-        let h = `<div class="gs"><h4 class="${g.c}">${g.n}</h4><div class="grid">`;
+        let h = `<div class="g"><h4 class="${g.c}">${g.n}</h4><div class="grid">`;
         g.m.forEach(m => h += `<a href="https://instagram.com/${m.ig}" target="_blank" class="m ${g.c}">${m.name}</a>`);
-        a.innerHTML += h + `</div></div>`;
+        app.innerHTML += h + `</div></div>`;
     });
 </script>
 </body>
