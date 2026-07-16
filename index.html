@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Not_Diana - 50 K-Pop Groups Database</title>
+    <title>Not_Diana - 40 K-Pop Groups</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: #000; color: #fff; font-family: 'Arial', sans-serif; padding: 20px; }
@@ -10,9 +10,9 @@
         .header { text-align: center; font-size: 28px; color: #ff1f1f; margin: 40px 0; text-shadow: 0 0 15px #ff1f1f; }
         .group-section { margin-bottom: 30px; border-bottom: 1px solid #222; padding-bottom: 20px; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .member { padding: 10px; border: 2px solid; border-radius: 8px; text-align: center; font-weight: bold; font-size: 13px; animation: pulse 1.5s infinite alternate; }
+        .member { padding: 10px; border: 2px solid; border-radius: 8px; text-align: center; font-weight: bold; font-size: 13px; animation: pulse 1.5s infinite alternate; background: rgba(0,0,0,0.4); }
         @keyframes pulse { 0% { box-shadow: 0 0 5px currentColor; } 100% { box-shadow: 0 0 15px currentColor; } }
-        /* Vari colori Neon */
+        /* Classi Colore */
         .c1 { border-color: #ff007f; color: #ff007f; } .c2 { border-color: #8a2be2; color: #8a2be2; }
         .c3 { border-color: #ffd700; color: #ffd700; } .c4 { border-color: #00ff00; color: #00ff00; }
         .c5 { border-color: #1e90ff; color: #1e90ff; } .c6 { border-color: #ff0000; color: #ff0000; }
@@ -22,75 +22,64 @@
 <body>
 
 <div class="container">
-    <h1 class="header">DIANA - DATABASE 50 IDOLS</h1>
+    <h1 class="header">DIANA - DATABASE 40 IDOLS</h1>
 
-    <!-- I 50 GRUPPI -->
-    <div id="content">
-        <script>
-            const groups = [
-                {n:"BLACKPINK", c:"c1", m:["JISOO","JENNIE","ROSÉ","LISA"]},
-                {n:"BTS", c:"c2", m:["RM","JIN","SUGA","J-HOPE","JIMIN","V","JUNGKOOK"]},
-                {n:"STRAY KIDS", c:"c3", m:["BANG CHAN","LEE KNOW","CHANGBIN","HYUNJIN","HAN","FELIX","SEUNGMIN","I.N"]},
-                {n:"IVE", c:"c4", m:["WONYOUNG","YUJIN","GAEUL","LIZ","REI","LEESEO"]},
-                {n:"(G)I-DLE", c:"c5", m:["SOYEON","MIYEON","MINNIE","YUQI","SHUHUA"]},
-                {n:"BABYMONSTER", c:"c6", m:["RUKA","PHARITA","ASA","AHYEON","RAMI","RORA","CHIQUITA"]},
-                {n:"NEWJEANS", c:"c8", m:["MINJI","HANNI","DANIELLE","HAERIN","HYEIN"]},
-                {n:"TWICE", c:"c1", m:["NAYEON","JEONGYEON","MOMO","SANA","JIHYO","MINA","DAHYUN","CHAEYOUNG","TZUYU"]},
-                {n:"ENHYPEN", c:"c7", m:["JUNGWON","HEESEUNG","JAY","JAKE","SUNGHOON","SUNOO","NI-KI"]},
-                {n:"AESPA", c:"c5", m:["KARINA","GISELLE","WINTER","NINGNING"]},
-                {n:"SEVENTEEN", c:"c3", m:["S.COUPS","JEONGHAN","JOSHUA","JUN","HOSHI","WONWOO","WOOZI","THE8","MINGYU","DK","SEUNGKWAN","VERNON","DINO"]},
-                {n:"TXT", c:"c2", m:["SOOBIN","YEONJUN","BEOMGYU","TAEHYUN","HUENINGKAI"]},
-                {n:"ATEEZ", c:"c6", m:["HONGJOONG","SEONGHWA","YUNHO","YEOSANG","SAN","MINGI","WOOYOUNG","JONGHO"]},
-                {n:"RED VELVET", c:"c1", m:["IRENE","SEULGI","WENDY","JOY","YERI"]},
-                {n:"ITZY", c:"c8", m:["YEJI","LIA","RYUJIN","CHAERYEONG","YUNA"]},
-                {n:"TREASURE", c:"c3", m:["CHOI HYUN SUK","JIHOON","YOSHI","JUNKYU","YOON JAE HYUK","ASAHI","DOYOUNG","HARUTO","PARK JEONG WOO","SO JUNG HWAN"]},
-                {n:"LE SSERAFIM", c:"c2", m:["SAKURA","CHAEWON","YUNJIN","KAZUHA","EUNCHAE"]},
-                {n:"NCT 127", c:"c4", m:["TAEIL","JOHNNY","TAEYONG","YUTA","DOYOUNG","JAEHYUN","JUNGWOO","MARK","HAECHAN"]},
-                {n:"EXO", c:"c5", m:["XIUMIN","SUHO","LAY","BAEKHYUN","CHEN","CHANYEOL","D.O.","KAI","SEHUN"]},
-                {n:"MAMAMOO", c:"c7", m:["SOLAR","MOONBYUL","WHEEIN","HWASA"]},
-                {n:"NMIXX", c:"c5", m:["LILY","HAEWON","SULLYOON","BAE","JIWOO","KYUJIN"]},
-                {n:"ZEROBASEONE", c:"c8", m:["SUNG HAN BIN","KIM JI WOONG","ZHANG HAO","SEOK MATTHEW","KIM TAE RAE","RICKY","KIM GYU VIN","PARK GUN WOOK","HAN YU JIN"]},
-                {n:"BOYNEXTDOOR", c:"c6", m:["SUNGHO","RIWOO","JAEHYUN","TAESAN","LEEHAN","WOONHAK"]},
-                {n:"RIIZE", c:"c3", m:["SHOTARO","EUNSEOK","SUNGCHAN","WONBIN","SEUNGHAN","SOHEE","ANTON"]},
-                {n:"GOT7", c:"c2", m:["JAY B","MARK","JACKSON","JINYOUNG","YOUNGJAE","BAMBAM","YUGYEOM"]},
-                {n:"MONSTA X", c:"c6", m:["SHOWNU","MINHYUK","KIHYUN","HYUNGWON","JOOHONEY","I.M"]},
-                {n:"P1HARMONY", c:"c5", m:["KEEHO","THEO","JIUNG","INTAK","SOUL","JONGSEOB"]},
-                {n:"CRAVITY", c:"c4", m:["SERIM","ALLEN","JUNGMO","WOOBIN","WONJIN","MINHEE","HYEONGJUN","TAEYOUNG","SEONGMIN"]},
-                {n:"THE BOYZ", c:"c8", m:["SANGYEON","JACOB","YOUNGHOON","HYUNJAE","JUYEON","KEVIN","NEW","Q","JU HAKNYEON","SUNWOO","ERIC"]},
-                {n:"BILLLIE", c:"c7", m:["MOON SUA","SUHYEON","RAMI","HARUNA","SHEON","SIYOON","TSUKI"]},
-                {n:"KISS OF LIFE", c:"c1", m:["JULIE","NATTY","BELLE","HANEUL"]},
-                {n:"ZB1", c:"c4", m:["SUNG HAN BIN","KIM JI WOONG","ZHANG HAO","SEOK MATTHEW","KIM TAE RAE","RICKY","KIM GYU VIN","PARK GUN WOOK","HAN YU JIN"]},
-                {n:"DAY6", c:"c3", m:["SUNGJIN","YOUNG K","WONPIL","DOWOON"]},
-                {n:"WINNER", c:"c8", m:["YOON","JINU","HOONY","MINO"]},
-                {n:"iKON", c:"c6", m:["JAY","SONG","BOBBY","DK","JU-NE","CHAN"]},
-                {n:"SHINEE", c:"c4", m:["ONEW","JONGHYUN","KEY","MINHO","TAEMIN"]},
-                {n:"APINK", c:"c1", m:["CHORONG","BOMI","EUNJI","NAEUN","NAMJOO","HAYOUNG"]},
-                {n:"OH MY GIRL", c:"c7", m:["HYOJUNG","MIMI","YOOA","SEUNGHEE","YUBIN","ARIN"]},
-                {n:"WJSN", c:"c5", m:["EXY","SEOLA","XUAN YI","BONA","SOOBIN","LUDA","DAWON","EUNSEO","CHENG XIAO","MEIQI","YEOREUM","DAYOUNG","YEONJUNG"]},
-                {n:"FROMIS_9", c:"c8", m:["SAEROM","HAYOUNG","GYURI","JIWON","SEOYEON","CHAEYOUNG","NAKYUNG","JIHEON"]},
-                {n:"DREAMCATCHER", c:"c2", m:["JIU","SUA","SIYEON","HANDONG","YOOHYEON","DAMI","GAHYEON"]},
-                {n:"ASTRO", c:"c3", m:["MJ","JINJIN","CHA EUN-WOO","MOONBIN","ROCKY","SANHA"]},
-                {n:"SF9", c:"c2", m:["YOUNGBIN","INSEONG","JAEYOON","DAWON","ZUHO","ROWOON","TAEYANG","HWIYOUNG","CHANI"]},
-                {n:"VICTON", c:"c5", m:["SEUNGSIK","CHAN","SEJUN","HANSE","BYUNGCHAN","SUBIN"]},
-                {n:"AB6IX", c:"c7", m:["WOONG","DONGHYUN","WOOJIN","DAEHWI"]},
-                {n:"DRIPPIN", c:"c4", m:["HYEOP","YUNSEONG","CHANGUK","DONGYUN","MINSEO","JUNHO"]},
-                {n:"CIX", c:"c6", m:["BX","SEUNGHUN","YONGHEE","BAEJINYOUNG","HYUNSUK"]},
-                {n:"WEEEKLY", c:"c3", m:["SOOJIN","MONDAY","SOEUN","JAEHEE","JIHAN","ZOA"]},
-                {n:"STAYC", c:"c1", m:["SUMIN","SIEUN","ISA","SEEUN","YOON","J"]},
-                {n:"PURPLE KISS", c:"c2", m:["PARK JIEUN","NA GOEUN","DOSIE","IREH","YUKI","CHAEIN","SWAN"]}
-            ];
+    <div id="content"></div>
 
-            const container = document.getElementById('content');
-            groups.forEach(g => {
-                let html = `<div class="group-section">
-                    <h2 style="color:var(--c${g.c}); margin-bottom:10px;">${g.n}</h2>
-                    <div class="grid">`;
-                g.m.forEach(m => html += `<div class="member ${g.c}">${m}</div>`);
-                html += `</div></div>`;
-                container.innerHTML += html;
-            });
-        </script>
-    </div>
+    <script>
+        const groups = [
+            {n:"BLACKPINK", c:"c1", m:["JISOO","JENNIE","ROSÉ","LISA"]},
+            {n:"BTS", c:"c2", m:["RM","JIN","SUGA","J-HOPE","JIMIN","V","JUNGKOOK"]},
+            {n:"STRAY KIDS", c:"c3", m:["BANG CHAN","LEE KNOW","CHANGBIN","HYUNJIN","HAN","FELIX","SEUNGMIN","I.N"]},
+            {n:"IVE", c:"c4", m:["WONYOUNG","YUJIN","GAEUL","LIZ","REI","LEESEO"]},
+            {n:"(G)I-DLE", c:"c5", m:["SOYEON","MIYEON","MINNIE","YUQI","SHUHUA"]},
+            {n:"BABYMONSTER", c:"c6", m:["RUKA","PHARITA","ASA","AHYEON","RAMI","RORA","CHIQUITA"]},
+            {n:"NEWJEANS", c:"c8", m:["MINJI","HANNI","DANIELLE","HAERIN","HYEIN"]},
+            {n:"TWICE", c:"c1", m:["NAYEON","JEONGYEON","MOMO","SANA","JIHYO","MINA","DAHYUN","CHAEYOUNG","TZUYU"]},
+            {n:"ENHYPEN", c:"c7", m:["JUNGWON","HEESEUNG","JAY","JAKE","SUNGHOON","SUNOO","NI-KI"]},
+            {n:"AESPA", c:"c5", m:["KARINA","GISELLE","WINTER","NINGNING"]},
+            {n:"SEVENTEEN", c:"c3", m:["S.COUPS","JEONGHAN","JOSHUA","JUN","HOSHI","WONWOO","WOOZI","MINGYU","DK","SEUNGKWAN","VERNON","DINO"]},
+            {n:"TXT", c:"c2", m:["SOOBIN","YEONJUN","BEOMGYU","TAEHYUN","HUENINGKAI"]},
+            {n:"ATEEZ", c:"c6", m:["HONGJOONG","SEONGHWA","YUNHO","YEOSANG","SAN","MINGI","WOOYOUNG","JONGHO"]},
+            {n:"RED VELVET", c:"c1", m:["IRENE","SEULGI","WENDY","JOY","YERI"]},
+            {n:"ITZY", c:"c8", m:["YEJI","LIA","RYUJIN","CHAERYEONG","YUNA"]},
+            {n:"TREASURE", c:"c3", m:["HYUNSUK","JIHOON","YOSHI","JUNKYU","JAEHYUK","ASAHI","DOYOUNG","HARUTO","JEONGWOO","JUNGHWAN"]},
+            {n:"LE SSERAFIM", c:"c2", m:["SAKURA","CHAEWON","YUNJIN","KAZUHA","EUNCHAE"]},
+            {n:"NCT 127", c:"c4", m:["TAEIL","JOHNNY","TAEYONG","YUTA","DOYOUNG","JAEHYUN","JUNGWOO","MARK","HAECHAN"]},
+            {n:"EXO", c:"c5", m:["XIUMIN","SUHO","LAY","BAEKHYUN","CHEN","CHANYEOL","D.O.","KAI","SEHUN"]},
+            {n:"MAMAMOO", c:"c7", m:["SOLAR","MOONBYUL","WHEEIN","HWASA"]},
+            {n:"NMIXX", c:"c5", m:["LILY","HAEWON","SULLYOON","BAE","JIWOO","KYUJIN"]},
+            {n:"ZEROBASEONE", c:"c8", m:["HANBIN","JIWOONG","ZHANG HAO","MATTHEW","TAERAE","RICKY","GYUVIN","GUNWOOK","YUJIN"]},
+            {n:"BOYNEXTDOOR", c:"c6", m:["SUNGHO","RIWOO","JAEHYUN","TAESAN","LEEHAN","WOONHAK"]},
+            {n:"RIIZE", c:"c3", m:["SHOTARO","EUNSEOK","SUNGCHAN","WONBIN","SEUNGHAN","SOHEE","ANTON"]},
+            {n:"GOT7", c:"c2", m:["JAY B","MARK","JACKSON","JINYOUNG","YOUNGJAE","BAMBAM","YUGYEOM"]},
+            {n:"MONSTA X", c:"c6", m:["SHOWNU","MINHYUK","KIHYUN","HYUNGWON","JOOHONEY","I.M"]},
+            {n:"P1HARMONY", c:"c5", m:["KEEHO","THEO","JIUNG","INTAK","SOUL","JONGSEOB"]},
+            {n:"CRAVITY", c:"c4", m:["SERIM","ALLEN","JUNGMO","WOOBIN","WONJIN","MINHEE","HYEONGJUN","TAEYOUNG","SEONGMIN"]},
+            {n:"THE BOYZ", c:"c8", m:["SANGYEON","JACOB","YOUNGHOON","HYUNJAE","JUYEON","KEVIN","NEW","Q","HAKNYEON","SUNWOO","ERIC"]},
+            {n:"BILLLIE", c:"c7", m:["SUA","SUHYEON","RAMI","HARUNA","SHEON","SIYOON","TSUKI"]},
+            {n:"KISS OF LIFE", c:"c1", m:["JULIE","NATTY","BELLE","HANEUL"]},
+            {n:"DAY6", c:"c3", m:["SUNGJIN","YOUNG K","WONPIL","DOWOON"]},
+            {n:"WINNER", c:"c8", m:["YOON","JINU","HOONY","MINO"]},
+            {n:"iKON", c:"c6", m:["JAY","SONG","BOBBY","DK","JU-NE","CHAN"]},
+            {n:"SHINEE", c:"c4", m:["ONEW","KEY","MINHO","TAEMIN"]},
+            {n:"APINK", c:"c1", m:["CHORONG","BOMI","EUNJI","NAEUN","NAMJOO","HAYOUNG"]},
+            {n:"OH MY GIRL", c:"c7", m:["HYOJUNG","MIMI","YOOA","SEUNGHEE","YUBIN","ARIN"]},
+            {n:"DREAMCATCHER", c:"c2", m:["JIU","SUA","SIYEON","HANDONG","YOOHYEON","DAMI","GAHYEON"]},
+            {n:"ASTRO", c:"c3", m:["MJ","JINJIN","EUNWOO","MOONBIN","SANHA"]},
+            {n:"STAYC", c:"c1", m:["SUMIN","SIEUN","ISA","SEEUN","YOON","J"]}
+        ];
+
+        const container = document.getElementById('content');
+        groups.forEach(g => {
+            let html = `<div class="group-section">
+                <h2 style="color:inherit; margin-bottom:10px;">${g.n}</h2>
+                <div class="grid">`;
+            g.m.forEach(m => html += `<div class="member ${g.c}">${m}</div>`);
+            html += `</div></div>`;
+            container.innerHTML += html;
+        });
+    </script>
 </div>
 
 </body>
