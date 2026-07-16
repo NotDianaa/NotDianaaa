@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>DIANA - DATABASE IDOLS IG</title>
+    <title>DIANA HUB - IDOL DATABASE</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: #000; color: #fff; font-family: 'Arial', sans-serif; padding: 20px; }
@@ -10,10 +10,7 @@
         .header { text-align: center; font-size: 32px; color: #ff1f1f; margin: 40px 0; text-shadow: 0 0 20px #ff1f1f; }
         .group-section { margin-bottom: 30px; border-bottom: 1px solid #222; padding-bottom: 20px; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
-        .member { 
-            padding: 10px; border: 2px solid; border-radius: 8px; text-align: center; font-weight: bold; font-size: 13px; 
-            background: rgba(0,0,0,0.4); text-decoration: none; display: block; color: inherit; transition: 0.3s;
-        }
+        .member { padding: 10px; border: 2px solid; border-radius: 8px; text-align: center; font-weight: bold; font-size: 13px; background: rgba(0,0,0,0.4); text-decoration: none; display: block; color: inherit; transition: 0.3s; }
         .member:hover { background: currentColor; color: #000; transform: scale(1.02); cursor: pointer; }
         .title-neon { font-family: 'Arial'; font-size: 18px; text-shadow: 0 0 10px currentColor; }
         .c1 { border-color: #ff007f; color: #ff007f; } .c2 { border-color: #8a2be2; color: #8a2be2; }
@@ -29,42 +26,26 @@
     <div id="content"></div>
 
     <script>
-        // Database con handle Instagram ufficiali verificati
         const groups = [
-            {n:"BLACKPINK", c:"c1", m:[
-                {name:"JISOO", ig:"sooyaaa__"}, {name:"JENNIE", ig:"jennierubyjane"}, 
-                {name:"ROSÉ", ig:"roses_are_rosie"}, {name:"LISA", ig:"lalalalisa_m"}
-            ]},
-            {n:"BTS", c:"c2", m:[
-                {name:"RM", ig:"rkive"}, {name:"JIN", ig:"jin"}, {name:"SUGA", ig:"agustd"}, 
-                {name:"J-HOPE", ig:"uarmyhope"}, {name:"JIMIN", ig:"j.m"}, {name:"V", ig:"thv"}, {name:"JUNGKOOK", ig:"jungkook.97"}
-            ]},
-            {n:"TWICE", c:"c1", m:[
-                {name:"NAYEON", ig:"nayeonyny"}, {name:"JEONGYEON", ig:"jy_piece"}, {name:"MOMO", ig:"momo"}, 
-                {name:"SANA", ig:"m.by__sana"}, {name:"JIHYO", ig:"_zyozyo"}, {name:"MINA", ig:"mina_sr_my"}, 
-                {name:"DAHYUN", ig:"dahhyunnee"}, {name:"CHAEYOUNG", ig:"chaeyo.0"}, {name:"TZUYU", ig:"thinkaboutzu"}
-            ]},
-            {n:"AESPA", c:"c5", m:[
-                {name:"KARINA", ig:"katarinabluu"}, {name:"GISELLE", ig:"aerichan"}, 
-                {name:"WINTER", ig:"imwinter"}, {name:"NINGNING", ig:"imningningi"}
-            ]},
-            {n:"NEWJEANS", c:"c8", m:[
-                {name:"MINJI", ig:"newjeans_official"}, {name:"HANNI", ig:"newjeans_official"}, 
-                {name:"DANIELLE", ig:"newjeans_official"}, {name:"HAERIN", ig:"newjeans_official"}, {name:"HYEIN", ig:"newjeans_official"}
-            ]}
+            {n:"BLACKPINK", c:"c1", m:[{name:"JISOO",ig:"sooyaaa__"},{name:"JENNIE",ig:"jennierubyjane"},{name:"ROSÉ",ig:"roses_are_rosie"},{name:"LISA",ig:"lalalalisa_m"}]},
+            {n:"BTS", c:"c2", m:[{name:"RM",ig:"rkive"},{name:"JIN",ig:"jin"},{name:"SUGA",ig:"agustd"},{name:"J-HOPE",ig:"uarmyhope"},{name:"JIMIN",ig:"j.m"},{name:"V",ig:"thv"},{name:"JUNGKOOK",ig:"jungkook.97"}]},
+            {n:"STRAY KIDS", c:"c3", m:[{name:"BANG CHAN",ig:"gnabnahcgnab"},{name:"LEE KNOW",ig:"t.leeknow"},{name:"CHANGBIN",ig:"jutdwi"},{name:"HYUNJIN",ig:"hynjinn"},{name:"HAN",ig:"han"},{name:"FELIX",ig:"yong.lixx"},{name:"SEUNGMIN",ig:"miniverse.___"},{name:"I.N",ig:"i.2.n.8"}]},
+            {n:"TWICE", c:"c1", m:[{name:"NAYEON",ig:"nayeonyny"},{name:"JEONGYEON",ig:"jy_piece"},{name:"MOMO",ig:"momo"},{name:"SANA",ig:"m.by__sana"},{name:"JIHYO",ig:"_zyozyo"},{name:"MINA",ig:"mina_sr_my"},{name:"DAHYUN",ig:"dahhyunnee"},{name:"CHAEYOUNG",ig:"chaeyo.0"},{name:"TZUYU",ig:"thinkaboutzu"}]},
+            {n:"IVE", c:"c4", m:[{name:"WONYOUNG",ig:"for_everyoung10"},{name:"YUJIN",ig:"_yujin_an"},{name:"GAEUL",ig:"fallininlove"},{name:"LIZ",ig:"liz"},{name:"REI",ig:"reinyourheart"},{name:"LEESEO",ig:"eeseo"}]},
+            {n:"AESPA", c:"c5", m:[{name:"KARINA",ig:"katarinabluu"},{name:"GISELLE",ig:"aerichan"},{name:"WINTER",ig:"imwinter"},{name:"NINGNING",ig:"imningningi"}]},
+            {n:"NEWJEANS", c:"c8", m:[{name:"MINJI",ig:"minji"},{name:"HANNI",ig:"hanni"},{name:"DANIELLE",ig:"danielle"},{name:"HAERIN",ig:"haerin"},{name:"HYEIN",ig:"hyein"}]},
+            {n:"LE SSERAFIM", c:"c2", m:[{name:"SAKURA",ig:"39saku_chan"},{name:"CHAEWON",ig:"_chaechae_1"},{name:"YUNJIN",ig:"jenaissante"},{name:"KAZUHA",ig:"k_a_z_u_h_a__"},{name:"EUNCHAE",ig:"hhh.e_c.v"}]},
+            {n:"BABYMONSTER", c:"c6", m:[{name:"RUKA",ig:"babymonster_ygofficial"},{name:"PHARITA",ig:"babymonster_ygofficial"},{name:"ASA",ig:"babymonster_ygofficial"},{name:"AHYEON",ig:"babymonster_ygofficial"},{name:"RAMI",ig:"babymonster_ygofficial"},{name:"RORA",ig:"babymonster_ygofficial"},{name:"CHIQUITA",ig:"babymonster_ygofficial"}]},
+            {n:"(G)I-DLE", c:"c5", m:[{name:"SOYEON",ig:"tiny.pretty.j"},{name:"MIYEON",ig:"noodle.zip"},{name:"MINNIE",ig:"min.nicha"},{name:"YUQI",ig:"yuqisong.923"},{name:"SHUHUA",ig:"yeh.shaa_"}]}
+            /* ...aggiungi qui tutti gli altri 90 gruppi seguendo lo schema {name:"NOME", ig:"username"} ... */
         ];
 
         const container = document.getElementById('content');
-        
         groups.forEach(g => {
-            let html = `<div class="group-section">
-                <h2 class="${g.c} title-neon" style="margin-bottom:10px;">${g.n}</h2>
-                <div class="grid">`;
-            
+            let html = `<div class="group-section"><h2 class="${g.c} title-neon" style="margin-bottom:10px;">${g.n}</h2><div class="grid">`;
             g.m.forEach(m => {
                 html += `<a href="https://instagram.com/${m.ig}" target="_blank" class="member ${g.c}">${m.name}</a>`;
             });
-            
             html += `</div></div>`;
             container.innerHTML += html;
         });
