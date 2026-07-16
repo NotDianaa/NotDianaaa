@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Not_Diana</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&family=Poppins:wght@700&family=Rozha+One&family=Lexend:wght@900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
 
 <style>
@@ -16,7 +16,6 @@ body { font-family:'Roboto',sans-serif; background:#000; color:#fff; overflow-x:
 #bg-video { position:fixed; width:100%; height:100%; object-fit:cover; z-index:-2; opacity:0.6; }
 #tsparticles { position:fixed; width:100%; height:100%; z-index:-1; }
 
-/* LAYOUT PRINCIPALE */
 #main-app { display: block; }
 
 /* HEADER E HERO */
@@ -24,37 +23,29 @@ header { padding:20px; text-align:center; background:rgba(0,0,0,0.6); }
 .logo { font-family:'Press Start 2P'; color:#ff1f1f; font-size:28px; text-shadow:0 0 15px red; }
 .hero { padding:140px 20px; text-align:center; border-bottom:1px solid rgba(255,0,0,0.2); }
 .hero h1 { font-family:'Press Start 2P'; font-size:42px; color:#ff1f1f; animation:glow 3s infinite alternate; }
-.hero p { color:#ccc; margin-top:10px; }
 @keyframes glow { from { text-shadow:0 0 10px red; } to { text-shadow:0 0 40px red; } }
 
 .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; padding:60px 20px; }
 .card { background:rgba(0,0,0,0.85); border-radius:18px; padding:20px; text-align:center; border:1px solid #330000; transition:0.4s; }
-.card:hover { transform:translateY(-6px) scale(1.02); box-shadow:0 0 30px red; }
-.card h3 { color:#ff1f1f; font-family:'Press Start 2P'; font-size:14px; }
-.card p { color:#aaa; margin:10px 0; }
-.card img { width:100%; height:160px; object-fit:cover; border-radius:10px; margin-bottom:10px; }
 .card a { display:block; margin:6px 0; padding:10px; border-radius:8px; text-decoration:none; font-weight:bold; color:#000; cursor:pointer; }
-
-.btn1 { background:#ff1f1f; }
-.btn2 { background:#ff9300; }
-.btn3 { background:#8f1fff; }
 .btn4 { background:#22c55e; }
-.btn5 { background:#06b6d4; }
-.btn6 { background:#facc15; }
 
-/* PAGINA K-POP (NOMI) */
+/* PAGINA K-POP */
 #kpop-page { display: none; position: absolute; top: 0; left: 0; width: 100%; background: #000; z-index: 1000; padding-bottom: 50px; }
 #back-btn { position: fixed; top: 20px; left: 20px; background: #ff1f1f; padding: 10px; color: #000; cursor: pointer; font-family: 'Press Start 2P'; font-size: 10px; border-radius: 5px; z-index: 1001; }
 
 .group-section { padding-top: 100px; text-align: center; }
-.sticky-title { position: sticky; top: 60px; font-size: 50px; z-index: 1; padding: 20px; }
-.members-list { list-style: none; padding: 20px; font-family: 'Roboto Mono'; font-size: 20px; }
-.members-list li { margin: 10px 0; }
+.sticky-title { position: sticky; top: 60px; font-size: 45px; z-index: 1; padding: 20px; text-shadow: 0 0 20px rgba(255,255,255,0.5); }
+.members-list { list-style: none; padding: 20px; font-family: 'Roboto Mono'; font-size: 22px; font-weight: bold; }
+.members-list li { margin: 12px 0; }
 
-.bp { color: #ff003c; text-shadow: 0 0 10px #ff003c; }
-.twice { color: #87cefa; text-shadow: 0 0 10px #87cefa; }
-.skz { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
-.bm { color: #b30000; text-shadow: 0 0 10px #ff4d4d; }
+/* COLORI GRUPPI */
+.bp { color: #ff007f; }
+.twice { color: #ffc0cb; }
+.skz { color: #ff0000; }
+.bm { color: #ff4500; }
+.bts { color: #a020f0; }
+.idle { color: #8a2be2; }
 
 .terminal { background:#000; border:1px solid red; padding:20px; margin:60px auto; max-width:900px; font-family:'Roboto Mono'; color:#0f0; box-shadow:0 0 20px red; }
 footer { text-align:center; padding:30px; color:#888; }
@@ -68,53 +59,27 @@ footer { text-align:center; padding:30px; color:#888; }
     <div id="tsparticles"></div>
 
     <header><div class="logo">DIANA</div></header>
+    <section class="hero"><h1>Diana – Dark Dev</h1></section>
 
-    <section class="hero"><h1>Diana – Dark Dev</h1><p>Gamer | Developer | Creator</p></section>
-
-    <!-- PROGETTI -->
     <section class="projects">
-        <div class="card">
-            <img src="https://prominencerpg.com/wp-content/uploads/2024/10/Prominence-II-RPG-Hasturian-Era.webp">
-            <h3>Prominence</h3><p>Hasturian Era</p>
-            <a class="btn1" href="https://rpg.prominence.wiki/hasturian-era" target="_blank">Wiki</a>
-        </div>
-        <div class="card">
-            <h3>K-Pop Nomi</h3><p>Lista Gruppi</p>
+        <div class="card"><h3>K-Pop Lista</h3><p>Gruppi & Membri</p>
             <a class="btn4" onclick="document.getElementById('main-app').style.display='none'; document.getElementById('kpop-page').style.display='block';">Visualizza</a>
         </div>
-        <div class="card">
-            <img src="https://img.freepik.com/premium-photo/discord-logo">
-            <h3>Discord</h3><p>Contattami</p>
-            <a class="btn3" href="https://discord.com/users/not_diana__" target="_blank">Apri</a>
-        </div>
     </section>
-
-    <!-- TOOLS E MODS -->
-    <section class="hero"><h1>Tools</h1></section>
-    <section class="projects">
-        <div class="card"><h3>RedTiger</h3><p>Python</p><a class="btn1" href="https://github.com/NotDianaa/RedTiger?tab=GPL-3.0-1-ov-file">Apri</a></div>
-        <div class="card"><h3>Launcher</h3><p>Dev launcher</p><a class="btn2" href="#">Download</a></div>
-    </section>
-
-    <section class="hero"><h1>Mods</h1></section>
-    <section class="projects">
-        <div class="card"><h3>The Broken Script</h3><p>2.0</p><a class="btn4" href="https://www.mediafire.com/file/fmgibx9fbenmlyx/The+Broken+Script+2.0+Trailer.mkv/file">Trailer</a></div>
-    </section>
-
-    <div class="terminal">
-        <p>[Diana@dev]$ system.boot</p><p>Success ✔</p>
-    </div>
+    
     <footer>© 2026 Diana</footer>
 </div>
 
-<!-- PAGINA K-POP -->
 <div id="kpop-page">
     <div id="back-btn" onclick="document.getElementById('kpop-page').style.display='none'; document.getElementById('main-app').style.display='block';">← INDIETRO</div>
     
-    <div class="group-section"><h2 class="sticky-title bp">BLACKPINK</h2><ul class="members-list"><li>JISOO</li><li>JENNIE</li><li>ROSÉ</li><li>LISA</li></ul></div>
-    <div class="group-section"><h2 class="sticky-title twice">TWICE</h2><ul class="members-list"><li>NAYEON</li><li>JEONGYEON</li><li>MOMO</li><li>SANA</li><li>JIHYO</li><li>MINA</li><li>DAHYUN</li><li>CHAEYOUNG</li><li>TZUYU</li></ul></div>
-    <div class="group-section"><h2 class="sticky-title skz">STRAY KIDS</h2><ul class="members-list"><li>BANG CHAN</li><li>LEE KNOW</li><li>CHANGBIN</li><li>HYUNJIN</li><li>HAN</li><li>FELIX</li><li>SEUNGMIN</li><li>I.N</li></ul></div>
-    <div class="group-section"><h2 class="sticky-title bm">BABYMONSTER</h2><ul class="members-list"><li>RUKA</li><li>PHARITA</li><li>ASA</li><li>AHYEON</li><li>RAMI</li><li>RORA</li><li>CHIQUITA</li></ul></div>
+    <div class="group-section"><h2 class="sticky-title bp">BLACKPINK</h2><ul class="members-list"><li style="color:#ff69b4">JISOO</li><li style="color:#ff1493">JENNIE</li><li style="color:#ffb6c1">ROSÉ</li><li style="color:#ff00ff">LISA</li></ul></div>
+    
+    <div class="group-section"><h2 class="sticky-title bts">BTS</h2><ul class="members-list"><li style="color:#9370db">RM</li><li style="color:#ba55d3">JIN</li><li style="color:#8a2be2">SUGA</li><li style="color:#9932cc">J-HOPE</li><li style="color:#800080">JIMIN</li><li style="color:#4b0082">V</li><li style="color:#dda0dd">JUNGKOOK</li></ul></div>
+
+    <div class="group-section"><h2 class="sticky-title idle">(G)I-DLE</h2><ul class="members-list"><li style="color:#d8bfd8">SOYEON</li><li style="color:#dda0dd">MIYEON</li><li style="color:#ee82ee">MINNIE</li><li style="color:#da70d6">YUQI</li><li style="color:#c71585">SHUHUA</li></ul></div>
+
+    <div class="group-section"><h2 class="sticky-title twice">TWICE</h2><ul class="members-list"><li style="color:#ffb6c1">NAYEON</li><li style="color:#87cefa">JIHYO</li><li style="color:#ff69b4">MOMO</li><li style="color:#add8e6">SANA</li></ul></div>
 </div>
 
 <script>
