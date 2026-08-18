@@ -2,7 +2,6 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <style>
         body {
@@ -16,45 +15,23 @@
             font-family: Arial, sans-serif;
             color: white;
         }
-        h1 {
-            margin-bottom: 30px;
-        }
-        .button-container {
-            display: flex;
-            gap: 20px;
-        }
         .btn {
             padding: 15px 30px;
             font-size: 18px;
             font-weight: bold;
             color: white;
+            background-color: #8A2BE2;
+            border: none;
             border-radius: 8px;
             cursor: pointer;
-            border: none;
-        }
-        .btn-ahyeon { background-color: #8A2BE2; }
-        .btn-asa { background-color: #2E8B57; }
-        .btn-jennie { background-color: #1E90FF; }
-        
-        .btn:hover {
-            opacity: 0.8;
         }
     </style>
 </head>
 <body>
 
-    <h1>Benvenuto nel mio sito web</h1>
+    <h1>Benvenuto</h1>
 
-    <div class="button-container">
-        <!-- Ahyeon -->
-        <button class="btn btn-ahyeon" onclick="window.open('https://www.instagram.com/ahyeon.bm.private?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', '_blank')">Ahyeon</button>
-        
-        <!-- Asa -->
-        <button class="btn btn-asa" onclick="location.href='asa.html'">Asa</button>
-        
-        <!-- Jennie -->
-        <button class="btn btn-jennie" onclick="window.open('https://www.instagram.com/jennie_kim_blk_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', '_blank')">Jennie</button>
-    </div>
+    <button class="btn" onclick="window.open('https://www.instagram.com/ahyeon.bm.private', '_blank')">Ahyeon</button>
 
 </body>
 </html>
