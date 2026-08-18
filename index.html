@@ -5,21 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <style>
-        /* Impostazioni di base: Sfondo nero diretto e testo bianco */
+        /* Sfondo nero con animazione fluida in CSS */
         body {
-            background-color: black;
-            color: white; 
-            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            background: #000000;
+            background: linear-gradient(135deg, #000000, #0a0015, #000000);
+            background-size: 400% 400%;
+            animation: gradientAnimation 12s ease infinite;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         h1 {
             margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
 
         .button-container {
@@ -35,15 +46,16 @@
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: 0.2s;
+            transition: transform 0.2s, opacity 0.2s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         .btn:hover {
-            opacity: 0.8;
             transform: scale(1.05);
+            opacity: 0.9;
         }
 
-        /* Colori esatti richiesti per i bottoni */
+        /* Colori dei bottoni */
         .btn-ahyeon { background-color: #8A2BE2; } /* Viola */
         .btn-asa { background-color: #2E8B57; }    /* Verde */
         .btn-jennie { background-color: #1E90FF; } /* Blu */
@@ -54,7 +66,6 @@
     <h1>Benvenuto nel mio sito web</h1>
 
     <div class="button-container">
-        <!-- Bottoni con i collegamenti -->
         <button class="btn btn-ahyeon" onclick="location.href='ahyeon.html'">Ahyeon</button>
         <button class="btn btn-asa" onclick="location.href='asa.html'">Asa</button>
         <button class="btn btn-jennie" onclick="location.href='jennie.html'">Jennie</button>
