@@ -15,23 +15,67 @@
             font-family: Arial, sans-serif;
             color: white;
         }
+        h1 {
+            margin-bottom: 40px;
+        }
+        .sections-container {
+            display: flex;
+            gap: 50px;
+        }
+        .section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
         .btn {
-            padding: 15px 30px;
-            font-size: 18px;
+            padding: 12px 25px;
+            font-size: 16px;
             font-weight: bold;
             color: white;
-            background-color: #8A2BE2;
             border: none;
             border-radius: 8px;
             cursor: pointer;
+            width: 140px;
+            text-align: center;
+        }
+        .btn-ahyeon { background-color: #8A2BE2; }
+        .btn-asa { background-color: #2E8B57; }
+        .btn-jennie { background-color: #1E90FF; }
+        
+        .btn:hover {
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
 
-    <h1>Benvenuto</h1>
+    <h1>Benvenuto nel mio sito web</h1>
 
-    <button class="btn" onclick="window.open('https://www.instagram.com/ahyeon.bm.private', '_blank')">Ahyeon</button>
+    <div class="sections-container">
+        
+        <!-- Sezione Instagram -->
+        <div class="section">
+            <span class="section-title">Instagram</span>
+            <button class="btn btn-ahyeon" onclick="window.open('https://www.instagram.com/ahyeon.bm.private?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', '_blank')">Ahyeon</button>
+            <button class="btn btn-asa" onclick="window.open('https://www.instagram.com/asa.html', '_blank')">Asa</button>
+            <button class="btn btn-jennie" onclick="window.open('https://www.instagram.com/jennie_kim_blk_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', '_blank')">Jennie</button>
+        </div>
+
+        <!-- Sezione Discord -->
+        <div class="section">
+            <span class="section-title">Discord</span>
+            <button class="btn btn-ahyeon" onclick="window.open('INSERISCI_LINK_DISCORD_AHYEON', '_blank')">Ahyeon</button>
+            <button class="btn btn-asa" onclick="window.open('INSERISCI_LINK_DISCORD_ASA', '_blank')">Asa</button>
+            <button class="btn btn-jennie" onclick="window.open('INSERISCI_LINK_DISCORD_JENNIE', '_blank')">Jennie</button>
+        </div>
+
+    </div>
 
 </body>
 </html>
