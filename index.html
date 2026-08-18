@@ -2,65 +2,75 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>DIANA - DATABASE 100 IDOLS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #000; color: #fff; font-family: 'Segoe UI', sans-serif; padding: 20px; }
-        .container { max-width: 800px; margin: 0 auto; }
-        
-        .header { 
-            text-align: center; font-size: 32px; color: #ff1f1f; 
-            margin: 40px 0; text-shadow: 0 0 15px #ff1f1f, 0 0 30px #ff1f1f; 
-        }
-        
-        .group-section { margin-bottom: 30px; border-bottom: 1px solid #222; padding-bottom: 20px; }
-        
-        .title-neon { 
-            font-size: 20px; margin-bottom: 15px; 
-            text-shadow: 0 0 8px currentColor, 0 0 15px currentColor;
-        }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
-        
-        .member { 
-            padding: 10px; border: 2px solid currentColor; border-radius: 8px; 
-            text-align: center; font-weight: bold; font-size: 13px; 
-            background: rgba(0,0,0,0.3); 
-            animation: neonPulse 1.5s infinite alternate;
-        }
-        
-        @keyframes neonPulse { 
-            from { box-shadow: 0 0 5px currentColor, 0 0 10px currentColor; } 
-            to { box-shadow: 0 0 15px currentColor, 0 0 25px currentColor; } 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
         }
 
-        .c1 { color: #ff007f; } .c2 { color: #8a2be2; }
-        .c3 { color: #ffd700; } .c4 { color: #00ff00; }
-        .c5 { color: #1e90ff; } .c6 { color: #ff0000; }
-        .c7 { color: #ff8c00; } .c8 { color: #00ced1; }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        /* Colori dei bottoni */
+        .btn-ahyeon {
+            background-color: #8A2BE2; /* Viola */
+        }
+
+        .btn-asa {
+            background-color: #2E8B57; /* Verde */
+        }
+
+        .btn-jennie {
+            background-color: #1E90FF; /* Blu */
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1 class="header">DIANA - DATABASE 100 IDOLS</h1>
-    <div id="content"></div>
+    <h1>Benvenuto nel mio sito web</h1>
 
-    <script>
-        const groups = [
-            {n:"BLACKPINK",c:"c1",m:["JISOO","JENNIE","ROSÉ","LISA"]},{n:"BTS",c:"c2",m:["RM","JIN","SUGA","J-HOPE","JIMIN","V","JUNGKOOK"]},{n:"STRAY KIDS",c:"c3",m:["BANG CHAN","LEE KNOW","CHANGBIN","HYUNJIN","HAN","FELIX","SEUNGMIN","I.N"]},{n:"IVE",c:"c4",m:["WONYOUNG","YUJIN","GAEUL","LIZ","REI","LEESEO"]},{n:"(G)I-DLE",c:"c5",m:["SOYEON","MIYEON","MINNIE","YUQI","SHUHUA"]},{n:"BABYMONSTER",c:"c6",m:["RUKA","PHARITA","ASA","AHYEON","RAMI","RORA","CHIQUITA"]},{n:"NEWJEANS",c:"c8",m:["MINJI","HANNI","DANIELLE","HAERIN","HYEIN"]},{n:"TWICE",c:"c1",m:["NAYEON","JEONGYEON","MOMO","SANA","JIHYO","MINA","DAHYUN","CHAEYOUNG","TZUYU"]},{n:"ENHYPEN",c:"c7",m:["JUNGWON","HEESEUNG","JAY","JAKE","SUNGHOON","SUNOO","NI-KI"]},{n:"AESPA",c:"c5",m:["KARINA","GISELLE","WINTER","NINGNING"]},{n:"SEVENTEEN",c:"c3",m:["S.COUPS","JEONGHAN","JOSHUA","JUN","HOSHI","WONWOO","WOOZI","MINGYU","DK","SEUNGKWAN","VERNON","DINO"]},{n:"TXT",c:"c2",m:["SOOBIN","YEONJUN","BEOMGYU","TAEHYUN","HUENINGKAI"]},{n:"ATEEZ",c:"c6",m:["HONGJOONG","SEONGHWA","YUNHO","YEOSANG","SAN","MINGI","WOOYOUNG","JONGHO"]},{n:"RED VELVET",c:"c1",m:["IRENE","SEULGI","WENDY","JOY","YERI"]},{n:"ITZY",c:"c8",m:["YEJI","LIA","RYUJIN","CHAERYEONG","YUNA"]},{n:"TREASURE",c:"c3",m:["HYUNSUK","JIHOON","YOSHI","JUNKYU","JAEHYUK","ASAHI","DOYOUNG","HARUTO","JEONGWOO","JUNGHWAN"]},{n:"LE SSERAFIM",c:"c2",m:["SAKURA","CHAEWON","YUNJIN","KAZUHA","EUNCHAE"]},{n:"EXO",c:"c5",m:["XIUMIN","SUHO","LAY","BAEKHYUN","CHEN","CHANYEOL","D.O.","KAI","SEHUN"]},{n:"NMIXX",c:"c5",m:["LILY","HAEWON","SULLYOON","BAE","JIWOO","KYUJIN"]},{n:"ZEROBASEONE",c:"c8",m:["HANBIN","JIWOONG","ZHANG HAO","MATTHEW","TAERAE","RICKY","GYUVIN","GUNWOOK","YUJIN"]}
-        ];
+    <div class="button-container">
+        <!-- Bottone Ahyeon (Viola) -->
+        <button class="btn btn-ahyeon" onclick="location.href='ahyeon.html'">Ahyeon</button>
+        
+        <!-- Bottone Asa (Verde) -->
+        <button class="btn btn-asa" onclick="location.href='asa.html'">Asa</button>
+        
+        <!-- Bottone Jennie (Blu) -->
+        <button class="btn btn-jennie" onclick="location.href='jennie.html'">Jennie</button>
+    </div>
 
-        const container = document.getElementById('content');
-        groups.forEach(g => {
-            let html = `<div class="group-section">
-                <h2 class="${g.c} title-neon">${g.n}</h2>
-                <div class="grid">`;
-            g.m.forEach(m => html += `<div class="member ${g.c}">${m}</div>`);
-            html += `</div></div>`;
-            container.innerHTML += html;
-        });
-    </script>
-</div>
 </body>
 </html>
