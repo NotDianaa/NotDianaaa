@@ -2,13 +2,15 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Il mio sito</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            /* Sfondo online di prova */
+            width: 100%;
+            /* Sfondo nero con effetto particelle online */
             background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -18,7 +20,13 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-family: sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
         }
 
         .button-container {
@@ -34,21 +42,32 @@
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: transform 0.2s, filter 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
-        /* Colori */
-        .btn-ahyeon { background-color: #8A2BE2; } /* Viola */
-        .btn-asa { background-color: #2E8B57; }    /* Verde */
-        .btn-jennie { background-color: #1E90FF; } /* Blu */
-
         .btn:hover {
+            transform: translateY(-2px);
             filter: brightness(1.2);
-            transform: scale(1.05);
+        }
+
+        /* Colori dei bottoni */
+        .btn-ahyeon {
+            background-color: #8A2BE2; /* Viola */
+        }
+
+        .btn-asa {
+            background-color: #2E8B57; /* Verde */
+        }
+
+        .btn-jennie {
+            background-color: #1E90FF; /* Blu */
         }
     </style>
 </head>
 <body>
+
+    <h1>Benvenuto nel mio sito web</h1>
 
     <div class="button-container">
         <button class="btn btn-ahyeon" onclick="location.href='ahyeon.html'">Ahyeon</button>
