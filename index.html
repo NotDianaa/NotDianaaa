@@ -2,55 +2,28 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page Animata</title>
+    <title>Il mio sito</title>
     <style>
-        /* Impostazioni dello sfondo animato */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            width: 100%;
-            overflow: hidden;
-            background: #000; /* Sfondo nero */
+            /* Qui richiamiamo l'immagine */
+            background-image: url('sfondo.jpg');
+            background-size: cover; /* Copre tutto lo schermo */
+            background-position: center; /* Centra l'immagine */
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* L'immagine resta ferma mentre scrolli */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        /* Effetto particelle animate */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: radial-gradient(white, transparent 2px), radial-gradient(white, transparent 1px);
-            background-size: 50px 50px, 30px 30px;
-            background-position: 0 0, 15px 15px;
-            animation: move 20s linear infinite;
-            opacity: 0.2;
-        }
-
-        @keyframes move {
-            from { background-position: 0 0, 15px 15px; }
-            to { background-position: 500px 500px, 515px 515px; }
-        }
-
-        h1 {
-            color: white;
-            z-index: 1;
-            margin-bottom: 40px;
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            font-family: sans-serif;
         }
 
         .button-container {
             display: flex;
             gap: 20px;
-            z-index: 1;
         }
 
         .btn {
@@ -58,30 +31,24 @@
             font-size: 18px;
             font-weight: bold;
             color: white;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50px; /* Bottoni arrotondati */
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
+            transition: 0.3s;
         }
+
+        /* Colori */
+        .btn-ahyeon { background-color: #8A2BE2; } /* Viola */
+        .btn-asa { background-color: #2E8B57; }    /* Verde */
+        .btn-jennie { background-color: #1E90FF; } /* Blu */
 
         .btn:hover {
-            transform: scale(1.1);
-            border-color: white;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            filter: brightness(1.2);
+            transform: scale(1.05);
         }
-
-        /* Colori richiesti */
-        .btn-ahyeon:hover { background-color: #8A2BE2; } /* Viola */
-        .btn-asa:hover { background-color: #2E8B57; }    /* Verde */
-        .btn-jennie:hover { background-color: #1E90FF; } /* Blu */
-
     </style>
 </head>
 <body>
-
-    <h1>Benvenuto nel mio sito</h1>
 
     <div class="button-container">
         <button class="btn btn-ahyeon" onclick="location.href='ahyeon.html'">Ahyeon</button>
